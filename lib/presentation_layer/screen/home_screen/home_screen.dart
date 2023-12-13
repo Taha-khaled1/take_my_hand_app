@@ -1,10 +1,11 @@
+import 'package:take_hand/domain_layer/models/college_model.dart';
+import 'package:take_hand/domain_layer/models/course_model.dart';
 import 'package:take_hand/presentation_layer/components/appbar.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/carousel_slider_banner.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/college_card.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/course_card.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 import 'package:take_hand/presentation_layer/utils/helper_view.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/ui_components/info_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -55,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     shrinkWrap: true,
                     itemBuilder: (BuildContext context, int index) {
-                      return const CourseCard();
+                      return const CourseCardRectangular();
                     },
                   ),
                 ),
@@ -90,9 +91,3 @@ List<CollegeModel> colleges = [
     name: 'كلية تجاره',
   ),
 ];
-
-class CollegeModel {
-  final String imageUrl, name;
-
-  CollegeModel({required this.imageUrl, required this.name});
-}

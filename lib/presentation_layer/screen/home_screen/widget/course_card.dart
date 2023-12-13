@@ -4,8 +4,8 @@ import 'package:take_hand/presentation_layer/screen/home_screen/widget/bottom_se
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_tag.dart';
 import 'package:take_hand/presentation_layer/src/account_url.dart';
 
-class CourseCard extends StatelessWidget {
-  const CourseCard({
+class CourseCardRectangular extends StatelessWidget {
+  const CourseCardRectangular({
     super.key,
   });
 

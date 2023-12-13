@@ -1,11 +1,9 @@
 import 'package:line_icons/line_icons.dart';
 import 'package:take_hand/presentation_layer/components/appbar.dart';
+import 'package:take_hand/presentation_layer/screen/courses_screen/widget/row_course.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/bottom_section_course.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_tag.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/helper_view.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/models/device_info.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/ui_components/info_widget.dart';
 
 class FavoriteScreen extends StatelessWidget {
   const FavoriteScreen({Key? key}) : super(key: key);
@@ -25,41 +23,14 @@ class FavoriteScreen extends StatelessWidget {
   }
 }
 
-class RowCourse extends StatelessWidget {
-  const RowCourse({
-    super.key,
-    required this.deviceInfo,
-  });
-  final DeviceInfo deviceInfo;
-  @override
-  Widget build(BuildContext context) {
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: HelperView.childGridView(deviceInfo),
-        childAspectRatio: 0.7,
-      ),
-      itemBuilder: (context, index) {
-        return const CourseWidget(
-          imageUrl:
-              "https://business.louisville.edu/bizprod/wp-content/uploads/2020/04/BigRed-altLogo-700x394.jpg", // Change this to your image path
-          title: "Course Title", // Change this accordingly
-          isFree: true, // Set this based on your data
-          evaluation: 4.5, // Set this based on your data
-          collegeName: "Sample College", // Change this accordingly
-        );
-      },
-    );
-  }
-}
-
-class CourseWidget extends StatelessWidget {
+class CourseCardSqure extends StatelessWidget {
   final String imageUrl;
   final String title;
   final bool isFree;
   final double evaluation;
   final String collegeName;
 
-  const CourseWidget({
+  const CourseCardSqure({
     super.key,
     required this.imageUrl,
     required this.title,
@@ -84,7 +55,7 @@ class CourseWidget extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: NetworkImage(
+                    image: AssetImage(
                       imageUrl,
                     ),
                     fit: BoxFit.cover,

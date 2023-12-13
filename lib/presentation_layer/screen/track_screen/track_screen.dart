@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:take_hand/domain_layer/models/course_model.dart';
 import 'package:take_hand/presentation_layer/resources/color_manager.dart';
 import 'package:take_hand/presentation_layer/screen/track_screen/widget/track_card.dart';
 import 'package:take_hand/presentation_layer/src/components_packge.dart';
@@ -31,7 +32,8 @@ class TrackScreen extends StatelessWidget {
                 ],
               ),
               childrenDelegate: SliverChildBuilderDelegate(
-                (context, index) => const TrackCard(),
+                childCount: tracks.length,
+                (context, index) => TrackCard(trackModel: tracks[index]),
               ),
             ),
           );
@@ -41,36 +43,33 @@ class TrackScreen extends StatelessWidget {
   }
 }
 
-class Domain {
-  final String name;
-  final String imagePath; // path to the image asset or URL
-  final String description;
-  Domain(
-      {required this.name, required this.imagePath, required this.description});
-}
-
-List<Domain> domains = [
-  Domain(
-    name: 'تطوير تطبيقات الموبايل',
-    imagePath:
-        'https://business.louisville.edu/bizprod/wp-content/uploads/2020/04/BigRed-altLogo-700x394.jpg',
-    description: 'Development of mobile and desktop applications.',
+List<TrackModel> tracks = [
+  TrackModel(
+    imageUrl: 'assets/images/cyber.jpg',
+    name: 'الامن السيبراني',
   ),
-  Domain(
-    name: 'تطوير مواقع الانترنت',
-    imagePath:
-        'https://business.louisville.edu/bizprod/wp-content/uploads/2020/04/BigRed-altLogo-700x394.jpg',
-    description: 'Development and design of responsive websites.',
+  TrackModel(
+    imageUrl: 'assets/images/ai.jpg',
+    name: 'ذكاء اصطناعي',
   ),
-  // ... add more domains as needed
+  TrackModel(
+    imageUrl: 'assets/images/arg.jpg',
+    name: 'الهندسة الزراعية',
+  ),
+  TrackModel(
+    imageUrl: 'assets/images/mobile.jpg',
+    name: 'تطبيقات الهاتف',
+  ),
+  TrackModel(
+    imageUrl: 'assets/images/web.jpg',
+    name: 'تطبيقات الويب',
+  ),
+  TrackModel(
+    imageUrl: 'assets/images/acontant.jpg',
+    name: 'المحاسبه',
+  ),
+  TrackModel(
+    imageUrl: 'assets/images/mangment.jpg',
+    name: 'ادارة اعمال',
+  ),
 ];
-
-class DomainCard extends StatelessWidget {
-  final Domain domain;
-  const DomainCard({super.key, required this.domain});
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox();
-  }
-}

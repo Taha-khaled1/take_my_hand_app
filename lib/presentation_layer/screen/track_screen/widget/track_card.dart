@@ -1,4 +1,4 @@
-import 'package:take_hand/presentation_layer/screen/courses_screen/courses_screen.dart';
+import 'package:take_hand/domain_layer/models/course_model.dart';
 import 'package:take_hand/presentation_layer/screen/track_detalis_screen/track_detalis_screen.dart';
 import 'package:take_hand/presentation_layer/src/get_packge.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
@@ -6,8 +6,9 @@ import 'package:take_hand/presentation_layer/src/style_packge.dart';
 class TrackCard extends StatelessWidget {
   const TrackCard({
     super.key,
+    required this.trackModel,
   });
-
+  final TrackModel trackModel;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -26,10 +27,8 @@ class TrackCard extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(15),
             color: ColorManager.background,
-            image: const DecorationImage(
-              image: NetworkImage(
-                "https://business.louisville.edu/bizprod/wp-content/uploads/2020/04/BigRed-altLogo-700x394.jpg",
-              ),
+            image: DecorationImage(
+              image: AssetImage(trackModel.imageUrl),
               fit: BoxFit.cover,
             ),
           ),
@@ -42,10 +41,10 @@ class TrackCard extends StatelessWidget {
                   height: 20,
                 ),
                 Text(
-                  'التكنولوجيا',
+                  trackModel.name,
                   style: MangeStyles().getRegularStyle(
                     color: ColorManager.white,
-                    fontSize: 24,
+                    fontSize: 19,
                   ),
                 ),
                 const SizedBox(
@@ -55,7 +54,7 @@ class TrackCard extends StatelessWidget {
                   '(7) دورات تعليميه',
                   style: MangeStyles().getRegularStyle(
                     color: ColorManager.white,
-                    fontSize: 20,
+                    fontSize: 19,
                   ),
                 ),
               ],
