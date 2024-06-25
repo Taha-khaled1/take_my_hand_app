@@ -1,6 +1,4 @@
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/helper_view.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/ui_components/info_widget.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
@@ -15,6 +13,8 @@ class CustomButton extends StatelessWidget {
     this.colorborder,
     this.sideIs,
     this.fontSize,
+    this.spread,
+    this.depth,
   });
 
   final Color backgroundColor;
@@ -25,29 +25,35 @@ class CustomButton extends StatelessWidget {
   final Color? colorText;
   final Color? colorborder;
   final BorderSide? sideIs;
-  final double? fontSize;
+  final double? fontSize, spread;
+  final int? depth;
   @override
   Widget build(BuildContext context) {
     return InfoWidget(
       builder: (context, deviceInfo) {
         return ClayContainer(
-          // margin: const EdgeInsets.all(7),
-          width: HelperView.widthForTextField(deviceInfo),
+          width: width ?? HelperView.widthForTextField(deviceInfo),
           height: height ?? 55,
-          spread: 3,
-          color: ColorManager.background, borderRadius: rectangel ?? 12,
+          spread: spread ?? 3,
+          depth: depth ?? 15,
+          color: ColorManager.background,
+          borderRadius: rectangel ?? 12,
           child: ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor: MaterialStateProperty.all(backgroundColor),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                RoundedRectangleBorder(
-                  side: sideIs ?? BorderSide.none,
-                  borderRadius: BorderRadius.circular(rectangel ?? 12),
-                ),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: (backgroundColor),
+              shape: RoundedRectangleBorder(
+                side: sideIs ?? BorderSide.none,
+                borderRadius: BorderRadius.circular(rectangel ?? 12),
               ),
             ),
             onPressed: press,
-            child: Text(text, style: MangeStyles.textButtonStyle),
+            child: Text(
+              text,
+              style: MangeStyles().getSemiBoldStyle(
+                fontSize: fontSize ?? FontSize.s18,
+                color: colorText ?? ColorManager.white,
+              ),
+            ),
           ),
         );
       },

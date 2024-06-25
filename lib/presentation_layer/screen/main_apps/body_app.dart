@@ -1,6 +1,5 @@
 import 'package:take_hand/presentation_layer/components/appbar.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/models/device_info.dart';
 
 class BodyAppScreen extends StatelessWidget {
   const BodyAppScreen({Key? key, this.title, required this.body})

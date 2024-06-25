@@ -22,10 +22,10 @@ class BooksTile extends StatelessWidget {
         ),
       ),
       children: const [
-        BookCard(),
-        BookCard(),
-        BookCard(),
-        BookCard(),
+        BookCardTile(),
+        BookCardTile(),
+        BookCardTile(),
+        BookCardTile(),
       ],
     );
   }

@@ -10,10 +10,8 @@ late SharedPreferences sharedPreferences;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   sharedPreferences = await SharedPreferences.getInstance();
-  // if (sharedPreferences.getString("lang") == null) {
   sharedPreferences.setString("lang", 'ar');
-  // }
-
+  sharedPreferences.setBool("is_dark", true);
   await MobileAds.instance.initialize();
   // await Firebase.initializeApp();
   runApp(

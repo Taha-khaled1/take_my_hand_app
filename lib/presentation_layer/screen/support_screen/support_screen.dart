@@ -2,8 +2,6 @@ import 'package:get/get.dart';
 import 'package:take_hand/presentation_layer/screen/support_screen/support_controller.dart';
 import 'package:take_hand/presentation_layer/src/components_packge.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/helper_view.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/ui_components/info_widget.dart';
 
 class SupportScreen extends StatelessWidget {
   const SupportScreen({Key? key}) : super(key: key);
@@ -118,7 +116,7 @@ class SupportScreen extends StatelessWidget {
                       maxLines: 5,
                       decoration: InputDecoration(
                         filled: true,
-                        fillColor: const Color(0xff141418),
+                        fillColor: ColorManager.background,
                         hintText: "اكتب رسالتك",
                         hintStyle: MangeStyles().getBoldStyle(
                           color: ColorManager.white,

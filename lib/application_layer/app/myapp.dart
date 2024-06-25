@@ -15,9 +15,7 @@ class MyApp extends StatelessWidget {
       translations: MyTranslation(),
       locale: controller.language,
       theme: getApplicationTheme(),
-      // home: TestScreen(),
       getPages: getPage,
-      // home: HomeScreen(),
     );
   }
 }

@@ -27,7 +27,7 @@ class AdmobeController extends GetxController {
         request: request,
         rewardedAdLoadCallback: RewardedAdLoadCallback(
           onAdLoaded: (RewardedAd ad) {
-            HelperFunction.printRedColor(
+            HelperFunction.printRedText(
               '$ad loaded. loaded loaded loaded loaded loaded loaded loaded loaded loaded loaded loaded',
             );
             // showCustomSnackBar(AppStrings.ad_loaded.tr);
@@ -35,7 +35,7 @@ class AdmobeController extends GetxController {
             _numRewardedLoadAttempts = 0;
           },
           onAdFailedToLoad: (LoadAdError error) {
-            // printRedColor('${AppStrings.something_wrong.tr}: $error');
+            // printRedText('${AppStrings.something_wrong.tr}: $error');
             _rewardedAd = null;
             _numRewardedLoadAttempts += 1;
             if (_numRewardedLoadAttempts < maxFailedLoadAttempts) {
@@ -47,24 +47,24 @@ class AdmobeController extends GetxController {
 
   void showRewardedAd() {
     if (_rewardedAd == null) {
-      // printRedColor(AppStrings.show_ad_before_loaded.tr);
+      // printRedText(AppStrings.show_ad_before_loaded.tr);
       // showCustomSnackBar(AppStrings.show_ad_before_loaded.tr);
       return;
     }
 
     _rewardedAd!.fullScreenContentCallback = FullScreenContentCallback(
       onAdShowedFullScreenContent: (RewardedAd ad) {
-        HelperFunction.printRedColor('ad onAdShowedFullScreenContent.');
+        HelperFunction.printRedText('ad onAdShowedFullScreenContent.');
         // showCustomSnackBar('onAdShowedFullScreenContent');
       },
       onAdDismissedFullScreenContent: (RewardedAd ad) {
-        HelperFunction.printRedColor('$ad onAdDismissedFullScreenContent.');
+        HelperFunction.printRedText('$ad onAdDismissedFullScreenContent.');
 
         ad.dispose();
         _createRewardedAd();
       },
       onAdFailedToShowFullScreenContent: (RewardedAd ad, AdError error) {
-        HelperFunction.printRedColor(
+        HelperFunction.printRedText(
             '$ad onAdFailedToShowFullScreenContent: $error');
         // showCustomSnackBar('${AppStrings.something_wrong.tr}: $error');
         ad.dispose();
@@ -75,7 +75,7 @@ class AdmobeController extends GetxController {
     _rewardedAd!.setImmersiveMode(true);
     _rewardedAd!.show(
         onUserEarnedReward: (AdWithoutView ad, RewardItem reward) {
-      HelperFunction.printRedColor(
+      HelperFunction.printRedText(
           '$ad ------------------------------------- with reward $RewardItem(${reward.amount}, ${reward.type})'); // give him coin
       // homeController.getReward();
       // homeController.createTicketForUser();

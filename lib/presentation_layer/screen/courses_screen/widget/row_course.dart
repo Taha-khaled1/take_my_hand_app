@@ -1,7 +1,5 @@
 import 'package:take_hand/presentation_layer/screen/favorite_screen/favorite_screen.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/helper_view.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/models/device_info.dart';
 
 class RowCourse extends StatelessWidget {
   const RowCourse({
@@ -14,9 +12,10 @@ class RowCourse extends StatelessWidget {
     return GridView.builder(
       shrinkWrap: true,
       physics: NeverScrollableScrollPhysics(),
+      itemCount: 6,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
         crossAxisCount: HelperView.childGridView(deviceInfo),
-        childAspectRatio: 0.7,
+        childAspectRatio: 0.63,
       ),
       itemBuilder: (context, index) {
         return const CourseCardSqure(
@@ -24,7 +23,8 @@ class RowCourse extends StatelessWidget {
           title: "Course Title", // Change this accordingly
           isFree: true, // Set this based on your data
           evaluation: 4.5, // Set this based on your data
-          collegeName: "Sample College", // Change this accordingly
+          trackName: "Sample College", // Change this accordingly
+          price: '500', discountedPrice: '230',
         );
       },
     );

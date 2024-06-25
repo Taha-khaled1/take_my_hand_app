@@ -49,7 +49,7 @@ class BodybottomNavigationBar extends StatelessWidget {
               ),
               const GButton(
                 icon: LineIcons.heart,
-                text: "المفضله",
+                text: "دورات مجانيه",
               ),
               GButton(
                 icon: LineIcons.user,

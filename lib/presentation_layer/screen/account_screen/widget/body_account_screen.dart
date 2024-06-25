@@ -1,4 +1,6 @@
+import 'package:line_icons/line_icons.dart';
 import 'package:take_hand/presentation_layer/screen/account_screen/widget/custom_title.dart';
+import 'package:take_hand/presentation_layer/screen/favorite_screen/favorite_screen.dart';
 import 'package:take_hand/presentation_layer/screen/support_screen/support_screen.dart';
 import 'package:take_hand/presentation_layer/src/account_url.dart';
 
@@ -16,22 +18,11 @@ class BodyAccountScreen extends StatelessWidget {
           child: ListView(
             children: [
               CustomTitle(text: AppStrings.account.tr),
-
               CustomListtile(
-                widget: const Icon(Icons.privacy_tip_outlined,
-                    color: ColorManager.white),
-                titel: AppStrings.privacy_policy.tr,
+                widget: Icon(LineIcons.heart, color: ColorManager.white),
+                titel: "المفضله",
                 onTap: () {
-                  Get.to(() => const PrivacyPolicyScreen());
-                },
-              ),
-
-              CustomListtile(
-                widget: const Icon(Icons.policy_outlined,
-                    color: ColorManager.white),
-                titel: AppStrings.terms_and_conditions.tr,
-                onTap: () {
-                  Get.to(() => const TermsAndConditionsScreen());
+                  Get.to(() => const FavoriteScreen());
                 },
               ),
               CustomListtile(
@@ -47,6 +38,17 @@ class BodyAccountScreen extends StatelessWidget {
               ),
               CustomListtile(
                 widget: Image.asset(
+                  "assets/icons/customer-service.png",
+                  color: ColorManager.white,
+                  width: 30,
+                ),
+                titel: "الدعم الفني",
+                onTap: () {
+                  Get.to(() => const SupportScreen());
+                },
+              ),
+              CustomListtile(
+                widget: Image.asset(
                   "assets/icons/info.png",
                   color: ColorManager.white,
                   width: 30,
@@ -56,15 +58,23 @@ class BodyAccountScreen extends StatelessWidget {
                   Get.to(() => const AboutPage());
                 },
               ),
+
+              const CustomTitle(text: "الامان"),
               CustomListtile(
-                widget: Image.asset(
-                  "assets/icons/customer-service.png",
-                  color: ColorManager.white,
-                  width: 30,
-                ),
-                titel: "الدعم الفني",
+                widget: const Icon(Icons.privacy_tip_outlined,
+                    color: ColorManager.white),
+                titel: AppStrings.privacy_policy.tr,
                 onTap: () {
-                  Get.to(() => const SupportScreen());
+                  Get.to(() => const PrivacyPolicyScreen());
+                },
+              ),
+
+              CustomListtile(
+                widget: const Icon(Icons.policy_outlined,
+                    color: ColorManager.white),
+                titel: AppStrings.terms_and_conditions.tr,
+                onTap: () {
+                  Get.to(() => const TermsAndConditionsScreen());
                 },
               ),
               // const CustomSwitchLanguge(),

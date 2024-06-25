@@ -1,11 +1,14 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/widgets.dart';
 import 'package:take_hand/domain_layer/models/college_model.dart';
-import 'package:take_hand/domain_layer/models/course_model.dart';
 import 'package:take_hand/presentation_layer/components/appbar.dart';
+import 'package:take_hand/presentation_layer/screen/free_course_platforms/widget/section_header_and_filter.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/carousel_slider_banner.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/college_card.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/course_card.dart';
-import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/helper_view.dart';
+import 'package:take_hand/presentation_layer/screen/home_screen/widget/university_header.dart';
+import 'package:take_hand/presentation_layer/src/account_url.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -25,6 +28,113 @@ class HomeScreen extends StatelessWidget {
                 const CarouselSliderBanner(),
                 const SizedBox(
                   height: 15,
+                ),
+                SectionHeaderAndFilter(
+                  is_more: true,
+                  title: 'الجامعات',
+                  press: () {},
+                ),
+                SizedBox(
+                  height: 300,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 5,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: ClayContainer(
+                          width: 265,
+                          color: ColorManager.background,
+                          borderRadius: 20,
+                          depth: 10,
+                          spread: 2,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              UniversityHeader(),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(horizontal: 8.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      "جامعة النيل الدوليه",
+                                      style: MangeStyles().getRegularStyle(
+                                        color: ColorManager.white,
+                                        fontSize: FontSize.s16,
+                                      ),
+                                    ),
+                                    AppSizedBox.sizedBox_5,
+                                    Row(
+                                      children: [
+                                        RatingBar.builder(
+                                          initialRating: 3,
+                                          itemSize: 22,
+                                          minRating: 1,
+                                          direction: Axis.horizontal,
+                                          allowHalfRating: true,
+                                          ignoreGestures: true,
+                                          itemCount: 5,
+                                          itemPadding: EdgeInsets.symmetric(
+                                              horizontal: 0),
+                                          itemBuilder: (context, _) => Icon(
+                                            Icons.star,
+                                            color: Colors.amber,
+                                          ),
+                                          onRatingUpdate: (rating) {
+                                            print(rating);
+                                          },
+                                        ),
+                                        const SizedBox(
+                                          height: 17,
+                                          child: VerticalDivider(
+                                            thickness: 2,
+                                            color: ColorManager.kPrimary,
+                                          ),
+                                        ),
+                                        Text(
+                                          "الكليات (12)",
+                                          style: MangeStyles().getRegularStyle(
+                                            color: ColorManager.white,
+                                            fontSize: FontSize.s16,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        Image.asset(
+                                          "assets/icons/location.png",
+                                          height: 25,
+                                        ),
+                                        AppSizedBox.sizedBox_w5,
+                                        Text(
+                                          "مصر - المنيا - مركز مطاي",
+                                          style: MangeStyles().getRegularStyle(
+                                            color: ColorManager.white,
+                                            fontSize: FontSize.s12,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                SectionHeaderAndFilter(
+                  is_more: true,
+                  title: 'الكليات',
+                  press: () {},
                 ),
                 SizedBox(
                   height: 400,
@@ -47,6 +157,11 @@ class HomeScreen extends StatelessWidget {
                       );
                     },
                   ),
+                ),
+                SectionHeaderAndFilter(
+                  is_more: true,
+                  title: 'الدورات',
+                  press: () {},
                 ),
                 Transform.translate(
                   offset: const Offset(0, 0),
@@ -72,22 +187,22 @@ class HomeScreen extends StatelessWidget {
 List<CollegeModel> colleges = [
   CollegeModel(
     imageUrl:
-        'https://business.louisville.edu/bizprod/wp-content/uploads/2020/04/BigRed-altLogo-700x394.jpg',
+        'https://cdn3d.iconscout.com/3d/premium/thumb/medicine-7239919-5889254.png',
     name: 'كلية تجاره',
   ),
   CollegeModel(
     imageUrl:
-        'https://business.louisville.edu/bizprod/wp-content/uploads/2020/04/BigRed-altLogo-700x394.jpg',
+        'https://cdn3d.iconscout.com/3d/premium/thumb/medicine-7239919-5889254.png',
     name: 'كلية تجاره',
   ),
   CollegeModel(
     imageUrl:
-        'https://business.louisville.edu/bizprod/wp-content/uploads/2020/04/BigRed-altLogo-700x394.jpg',
+        'https://cdn3d.iconscout.com/3d/premium/thumb/medicine-7239919-5889254.png',
     name: 'كلية تجاره',
   ),
   CollegeModel(
     imageUrl:
-        'https://business.louisville.edu/bizprod/wp-content/uploads/2020/04/BigRed-altLogo-700x394.jpg',
+        'https://cdn3d.iconscout.com/3d/premium/thumb/medicine-7239919-5889254.png',
     name: 'كلية تجاره',
   ),
 ];

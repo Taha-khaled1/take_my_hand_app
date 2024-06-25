@@ -1,8 +1,8 @@
 import 'package:line_icons/line_icons.dart';
 import 'package:take_hand/presentation_layer/src/account_url.dart';
 
-class BookCard extends StatelessWidget {
-  const BookCard({
+class BookCardTile extends StatelessWidget {
+  const BookCardTile({
     super.key,
   });
 
@@ -40,6 +40,52 @@ class BookCard extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+// version 2 -----------------------------------------------------------------
+
+class BookCard extends StatelessWidget {
+  const BookCard({
+    super.key,
+    required this.image,
+    required this.name,
+  });
+  final String image, name;
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Stack(
+          // fit: StackFit.expand,
+          alignment: AlignmentDirectional.bottomCenter,
+          children: [
+            Container(
+              height: 120,
+              width: 200,
+              decoration: BoxDecoration(
+                color: Colors.teal,
+                borderRadius: BorderRadius.circular(5),
+              ),
+            ),
+            SizedBox(
+              height: 150,
+              child: Image.asset(
+                image,
+                height: 110,
+                fit: BoxFit.cover,
+              ),
+            ),
+          ],
+        ),
+        Text(
+          name,
+          style: MangeStyles().getRegularStyle(
+            color: ColorManager.white,
+            fontSize: 18,
+          ),
+        ),
+      ],
     );
   }
 }

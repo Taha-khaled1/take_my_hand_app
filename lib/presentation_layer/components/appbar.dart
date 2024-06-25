@@ -14,11 +14,5 @@ PreferredSizeWidget appbar(String title) {
       padding: EdgeInsets.all(8.0),
       child: CustomBackButton(),
     ),
-    // actions: const [
-    //   CustomBackButton(),
-    //   SizedBox(
-    //     width: 10,
-    //   )
-    // ],
   );
 }

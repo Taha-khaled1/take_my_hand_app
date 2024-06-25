@@ -10,10 +10,14 @@ class AppMargin {
 }
 
 class AppSizedBox {
+  static const SizedBox sizedBox_5 = SizedBox(height: 5);
   static const SizedBox sizedBox_10 = SizedBox(height: 10);
   static const SizedBox sizedBox_20 = SizedBox(height: 20);
   static const SizedBox sizedBox_30 = SizedBox(height: 30);
   static const SizedBox sizedBox_40 = SizedBox(height: 40);
+  static const SizedBox sizedBox_w5 = SizedBox(width: 5);
+  static const SizedBox sizedBox_w10 = SizedBox(width: 10);
+
   static const double m18 = 18.0;
   static const double m20 = 20.0;
 }

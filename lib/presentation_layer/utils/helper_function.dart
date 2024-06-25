@@ -35,7 +35,31 @@ class HelperFunction {
     );
   }
 
-  static void printRedColor(String text) {
+  static void printRedText(String text) {
     print('\x1B[31m$text\x1B[0m');
+  }
+
+  static void printGreenText(String text) {
+    print('\x1B[32m$text\x1B[0m');
+  }
+
+  static void printYellowText(String text) {
+    print('\x1B[33m$text\x1B[0m');
+  }
+
+  static void printBlueText(String text) {
+    print('\x1B[34m$text\x1B[0m');
+  }
+
+  static void printMagentaText(String text) {
+    print('\x1B[35m$text\x1B[0m');
+  }
+
+  static void printCyanText(String text) {
+    print('\x1B[36m$text\x1B[0m');
+  }
+
+  static void printWhiteText(String text) {
+    print('\x1B[37m$text\x1B[0m');
   }
 }

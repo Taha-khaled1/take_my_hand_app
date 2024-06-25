@@ -1,8 +1,7 @@
 // ignore_for_file: library_private_types_in_public_api
-
 import 'package:take_hand/presentation_layer/screen/account_screen/account_screen.dart';
 import 'package:take_hand/presentation_layer/screen/college_screen/college_screen.dart';
-import 'package:take_hand/presentation_layer/screen/favorite_screen/favorite_screen.dart';
+import 'package:take_hand/presentation_layer/screen/free_course_platforms/course_platforms_screen.dart';
 import 'package:take_hand/presentation_layer/screen/main_apps/widget/body_bottom_navigation.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/home_screen.dart';
 import 'package:get/get.dart';
@@ -21,7 +20,7 @@ class _NavBarHomeState extends State<NavBarHome> with WidgetsBindingObserver {
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
     CollegeScreen(),
-    FavoriteScreen(),
+    CoursePlatformsScreen(),
     AccountScreen(),
   ];
   @override
@@ -30,6 +29,7 @@ class _NavBarHomeState extends State<NavBarHome> with WidgetsBindingObserver {
     super.initState();
   }
 
+//Free course platforms
   @override
   Widget build(BuildContext context) {
     return Scaffold(

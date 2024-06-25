@@ -56,7 +56,10 @@ class CourseCardRectangular extends StatelessWidget {
                             fontSize: 14,
                           ),
                         ),
-                        const CustomTag(title: "كورس  مجاني"),
+                        const CustomTag(
+                          title: "كورس  مجاني",
+                          color: ColorManager.kPrimary,
+                        ),
                         const BottomSectionCourse(
                           college: " كلية تجاره",
                           star: "5.0",

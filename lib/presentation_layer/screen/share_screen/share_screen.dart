@@ -4,7 +4,6 @@ import 'package:share_plus/share_plus.dart';
 import 'package:take_hand/presentation_layer/components/appbar.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 import 'package:take_hand/presentation_layer/utils/helper_function.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/ui_components/info_widget.dart';
 
 class ShareAppScreen extends StatelessWidget {
   const ShareAppScreen({super.key});

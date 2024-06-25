@@ -1,6 +1,4 @@
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/helper_view.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/ui_components/info_widget.dart';
 
 class CustomTextfield extends StatelessWidget {
   final String titel;
@@ -89,7 +87,7 @@ class CustomTextfield extends StatelessWidget {
 
               //  enabled: true,
               filled: true,
-              fillColor: const Color(0xff141418),
+              fillColor: ColorManager.background,
               hintText: titel,
               hintStyle: MangeStyles().getBoldStyle(
                 color: ColorManager.white,

@@ -4,23 +4,25 @@ class CustomTag extends StatelessWidget {
   const CustomTag({
     super.key,
     required this.title,
+    required this.color,
   });
   final String title;
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.center,
-      width: 100,
-      height: 30,
+      width: 50,
+      height: 25,
       decoration: BoxDecoration(
-        color: ColorManager.kPrimary,
-        borderRadius: BorderRadius.circular(15),
+        color: color,
+        borderRadius: BorderRadius.circular(6),
       ),
       child: Text(
         title,
-        style: MangeStyles().getRegularStyle(
-          color: ColorManager.white,
-          fontSize: 14,
+        style: MangeStyles().getSemiBoldStyle(
+          color: Color(0xffFFFFFF),
+          fontSize: 12,
         ),
       ),
     );

@@ -7,3 +7,5 @@ export 'package:clay_containers/widgets/clay_container.dart';
 export 'package:clay_containers/constants.dart';
 export 'package:take_hand/presentation_layer/resources/strings_manager.dart';
 export 'package:take_hand/presentation_layer/utils/responsive_design/ui_components/info_widget.dart';
+export 'package:take_hand/presentation_layer/utils/helper_view.dart';
+export 'package:take_hand/presentation_layer/utils/responsive_design/models/device_info.dart';

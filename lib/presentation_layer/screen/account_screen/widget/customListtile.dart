@@ -2,8 +2,6 @@
 
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/helper_view.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/ui_components/info_widget.dart';
 
 class CustomListtile extends StatelessWidget {
   const CustomListtile({

@@ -1,7 +1,5 @@
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/course_card.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
-import 'package:take_hand/presentation_layer/utils/helper_view.dart';
-import 'package:take_hand/presentation_layer/utils/responsive_design/models/device_info.dart';
 
 class ColumnCourse extends StatelessWidget {
   const ColumnCourse({

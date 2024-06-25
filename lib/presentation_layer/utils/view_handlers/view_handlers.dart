@@ -4,9 +4,9 @@ import 'package:lottie/lottie.dart';
 
 class HandlingDataView extends StatelessWidget {
   final StatusRequest statusRequest;
-  final Widget widget;
+  final Widget child;
   const HandlingDataView(
-      {Key? key, required this.statusRequest, required this.widget})
+      {Key? key, required this.statusRequest, required this.child})
       : super(key: key);
 
   @override
@@ -35,6 +35,6 @@ class HandlingDataView extends StatelessWidget {
                             child: Lottie.asset(JsonAssets.empty,
                                 width: 250, height: 250)),
                       )
-                    : widget;
+                    : child;
   }
 }
