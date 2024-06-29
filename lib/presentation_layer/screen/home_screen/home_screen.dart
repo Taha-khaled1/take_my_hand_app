@@ -1,7 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:flutter/widgets.dart';
 import 'package:take_hand/domain_layer/models/college_model.dart';
-import 'package:take_hand/presentation_layer/components/appbar.dart';
+import 'package:take_hand/presentation_layer/resources/routes_manager.dart';
+import 'package:take_hand/presentation_layer/screen/article_screen/widget/article_card.dart';
 import 'package:take_hand/presentation_layer/screen/free_course_platforms/widget/section_header_and_filter.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/carousel_slider_banner.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/college_card.dart';
@@ -25,7 +24,9 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(
                   height: 15,
                 ),
-                const CarouselSliderBanner(),
+                CarouselSliderBanner(
+                  items: x,
+                ),
                 const SizedBox(
                   height: 15,
                 ),
@@ -40,92 +41,124 @@ class HomeScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: 5,
                     itemBuilder: (BuildContext context, int index) {
-                      return Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: ClayContainer(
-                          width: 265,
-                          color: ColorManager.background,
-                          borderRadius: 20,
-                          depth: 10,
-                          spread: 2,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              UniversityHeader(),
-                              Padding(
-                                padding:
-                                    const EdgeInsets.symmetric(horizontal: 8.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      "جامعة النيل الدوليه",
-                                      style: MangeStyles().getRegularStyle(
-                                        color: ColorManager.white,
-                                        fontSize: FontSize.s16,
+                      return GestureDetector(
+                        onTap: () {
+                          Get.toNamed(Routes.universityDetalisScreen);
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: ClayContainer(
+                            width: 265,
+                            color: ColorManager.background,
+                            borderRadius: 20,
+                            depth: 10,
+                            spread: 2,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                UniversityHeader(),
+                                Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                      horizontal: 8.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        "جامعة النيل الدوليه",
+                                        style: MangeStyles().getRegularStyle(
+                                          color: ColorManager.white,
+                                          fontSize: FontSize.s16,
+                                        ),
                                       ),
-                                    ),
-                                    AppSizedBox.sizedBox_5,
-                                    Row(
-                                      children: [
-                                        RatingBar.builder(
-                                          initialRating: 3,
-                                          itemSize: 22,
-                                          minRating: 1,
-                                          direction: Axis.horizontal,
-                                          allowHalfRating: true,
-                                          ignoreGestures: true,
-                                          itemCount: 5,
-                                          itemPadding: EdgeInsets.symmetric(
-                                              horizontal: 0),
-                                          itemBuilder: (context, _) => Icon(
-                                            Icons.star,
-                                            color: Colors.amber,
+                                      AppSizedBox.sizedBox_5,
+                                      Row(
+                                        children: [
+                                          RatingBar.builder(
+                                            initialRating: 3,
+                                            itemSize: 22,
+                                            minRating: 1,
+                                            direction: Axis.horizontal,
+                                            allowHalfRating: true,
+                                            ignoreGestures: true,
+                                            itemCount: 5,
+                                            itemPadding: EdgeInsets.symmetric(
+                                                horizontal: 0),
+                                            itemBuilder: (context, _) => Icon(
+                                              Icons.star,
+                                              color: Colors.amber,
+                                            ),
+                                            onRatingUpdate: (rating) {
+                                              print(rating);
+                                            },
                                           ),
-                                          onRatingUpdate: (rating) {
-                                            print(rating);
-                                          },
-                                        ),
-                                        const SizedBox(
-                                          height: 17,
-                                          child: VerticalDivider(
-                                            thickness: 2,
-                                            color: ColorManager.kPrimary,
+                                          const SizedBox(
+                                            height: 17,
+                                            child: VerticalDivider(
+                                              thickness: 2,
+                                              color: ColorManager.kPrimary,
+                                            ),
                                           ),
-                                        ),
-                                        Text(
-                                          "الكليات (12)",
-                                          style: MangeStyles().getRegularStyle(
-                                            color: ColorManager.white,
-                                            fontSize: FontSize.s16,
+                                          Text(
+                                            "الكليات (12)",
+                                            style:
+                                                MangeStyles().getRegularStyle(
+                                              color: ColorManager.white,
+                                              fontSize: FontSize.s16,
+                                            ),
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                    Row(
-                                      children: [
-                                        Image.asset(
-                                          "assets/icons/location.png",
-                                          height: 25,
-                                        ),
-                                        AppSizedBox.sizedBox_w5,
-                                        Text(
-                                          "مصر - المنيا - مركز مطاي",
-                                          style: MangeStyles().getRegularStyle(
-                                            color: ColorManager.white,
-                                            fontSize: FontSize.s12,
+                                        ],
+                                      ),
+                                      Row(
+                                        children: [
+                                          Image.asset(
+                                            "assets/icons/location.png",
+                                            height: 25,
                                           ),
-                                        ),
-                                      ],
-                                    ),
-                                  ],
+                                          AppSizedBox.sizedBox_w5,
+                                          Text(
+                                            "مصر - المنيا - مركز مطاي",
+                                            style:
+                                                MangeStyles().getRegularStyle(
+                                              color: ColorManager.white,
+                                              fontSize: FontSize.s12,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ],
+                              ],
+                            ),
                           ),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+                SectionHeaderAndFilter(
+                  is_more: true,
+                  title: 'المقالات',
+                  press: () {},
+                ),
+                SizedBox(
+                  height: 300,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 5,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Padding(
+                        padding: EdgeInsetsDirectional.only(start: 8),
+                        child: ArticleCard(
+                          imageUrl: 'assets/images/pexels-iriser-1366957.jpg',
+                          title:
+                              'بعض الامثله التي يمكنك تطبيقها مثل الاغاني و العب كرة القدم',
+                          date: '21/11/23',
+                          readTime: 10,
                         ),
                       );
                     },

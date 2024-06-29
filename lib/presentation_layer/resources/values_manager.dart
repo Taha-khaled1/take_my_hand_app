@@ -17,6 +17,7 @@ class AppSizedBox {
   static const SizedBox sizedBox_40 = SizedBox(height: 40);
   static const SizedBox sizedBox_w5 = SizedBox(width: 5);
   static const SizedBox sizedBox_w10 = SizedBox(width: 10);
+  static const SizedBox sizedBox_w20 = SizedBox(width: 20);
 
   static const double m18 = 18.0;
   static const double m20 = 20.0;

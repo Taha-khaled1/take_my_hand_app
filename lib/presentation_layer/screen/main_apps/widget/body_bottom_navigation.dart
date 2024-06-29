@@ -28,13 +28,13 @@ class BodybottomNavigationBar extends StatelessWidget {
       ),
       child: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 8),
           child: GNav(
             rippleColor: Colors.white,
             gap: 8,
             activeColor: Colors.white,
             iconSize: 24,
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 12),
             duration: const Duration(milliseconds: 400),
             tabBackgroundColor: ColorManager.kPrimary,
             color: Colors.blueAccent,
@@ -49,7 +49,11 @@ class BodybottomNavigationBar extends StatelessWidget {
               ),
               const GButton(
                 icon: LineIcons.heart,
-                text: "دورات مجانيه",
+                text: "دورات",
+              ),
+              GButton(
+                icon: LineIcons.bookOpen,
+                text: 'مقالات',
               ),
               GButton(
                 icon: LineIcons.user,

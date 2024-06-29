@@ -55,6 +55,15 @@ dependencies:
   webview_flutter: ^4.4.1
   intl: ^0.18.1
   flutter_rating_bar: ^4.0.1
+  url_launcher: ^6.3.0
+  chatgpt_completions: ^1.0.4
+  flutter_gemini: ^2.0.4
+  image_picker: ^1.1.2
+  flutter_markdown: ^0.7.2+1
+  youtube_player_flutter: ^8.1.2
+  visibility_detector: ^0.4.0+2
+  glowy_borders: ^1.0.2
+  flutter_html: ^3.0.0-beta.2
   
 dev_dependencies:
   flutter_launcher_icons: "^0.11.0"
@@ -128,11 +137,17 @@ flutter:
       fonts:
         - asset: assets/fonts/cairo/Cairo-Regular.ttf
         - asset: assets/fonts/cairo/Cairo-Bold.ttf
-          weight: 700
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+        - asset: assets/fonts/cairo/Cairo-Light.ttf
+        - asset: assets/fonts/cairo/Cairo-SemiBold.ttf
+          # weight: 700
+
+    - family: ubermove
+      fonts:
+        - asset: assets/fonts/ubermove/UberMoveTextBold.ttf
+        - asset: assets/fonts/ubermove/UberMoveTextLight.ttf
+        - asset: assets/fonts/ubermove/UberMoveTextMedium.ttf
+        - asset: assets/fonts/ubermove/UberMoveTextRegular.ttf
+          # weight: 700
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages

@@ -7,9 +7,15 @@ import 'package:take_hand/presentation_layer/src/style_packge.dart';
 class CollegeCard extends StatelessWidget {
   final String imageUrl;
   final String collegeName;
-
+  final double? width, height, imageHeight, imageWidth;
   const CollegeCard(
-      {super.key, required this.imageUrl, required this.collegeName});
+      {super.key,
+      required this.imageUrl,
+      required this.collegeName,
+      this.width,
+      this.height,
+      this.imageHeight,
+      this.imageWidth});
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +25,8 @@ class CollegeCard extends StatelessWidget {
       },
       child: ClayContainer(
         color: ColorManager.background,
-        height: 200,
-        width: 200,
+        height: height ?? 200,
+        width: width ?? 180,
         borderRadius: 15,
         spread: 1.5,
         depth: 20,
@@ -30,8 +36,8 @@ class CollegeCard extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: imageUrl,
               fit: BoxFit.contain,
-              height: 130,
-              width: 150,
+              height: imageHeight ?? 115,
+              width: imageWidth ?? 140,
               placeholder: (context, url) => const CircularProgressIndicator(),
               errorWidget: (context, url, error) => const Icon(Icons.error),
             ),
@@ -39,8 +45,9 @@ class CollegeCard extends StatelessWidget {
             Text(
               collegeName,
               style: const TextStyle(
+                fontFamily: FontConstants.fontFamily,
                 color: Colors.white,
-                fontSize: 18.0,
+                fontSize: 17,
                 fontWeight: FontWeight.bold,
               ),
             ),

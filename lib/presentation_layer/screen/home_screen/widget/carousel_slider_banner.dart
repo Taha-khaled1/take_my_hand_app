@@ -4,34 +4,42 @@ import 'package:take_hand/presentation_layer/src/style_packge.dart';
 class CarouselSliderBanner extends StatelessWidget {
   const CarouselSliderBanner({
     super.key,
+    required this.items,
+    this.height,
+    this.aspectRatio,
+    this.viewportFraction,
+    this.callbackFunction,
+    this.enlargeFactor,
   });
-
+  final List<Widget> items;
+  final double? height, aspectRatio, viewportFraction, enlargeFactor;
+  final void Function(int, CarouselPageChangedReason)? callbackFunction;
   @override
   Widget build(BuildContext context) {
     return Container(
       alignment: Alignment.centerRight,
-      margin: const EdgeInsets.symmetric(horizontal: 12),
-      width: MediaQuery.of(context).size.width * 0.9,
-      height: 160,
+      // margin: const EdgeInsets.symmetric(horizontal: 12),
+      width: MediaQuery.of(context).size.width * 1,
+      height: height ?? 160,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
       ),
       child: CarouselSlider(
-        items: x,
+        items: items,
         options: CarouselOptions(
-          height: 400,
-          aspectRatio: 16 / 9,
-          viewportFraction: 1,
+          height: height ?? 160,
+          aspectRatio: aspectRatio ?? 16 / 9,
+          viewportFraction: viewportFraction ?? 0.8,
           initialPage: 0,
           enableInfiniteScroll: true,
           reverse: false,
           autoPlay: true,
           autoPlayInterval: const Duration(seconds: 3),
-          autoPlayAnimationDuration: const Duration(milliseconds: 800),
+          autoPlayAnimationDuration: const Duration(seconds: 2),
           autoPlayCurve: Curves.fastOutSlowIn,
           enlargeCenterPage: true,
-          enlargeFactor: 0.3,
-          // onPageChanged: callbackFunction,
+          enlargeFactor: enlargeFactor ?? 0.3,
+          onPageChanged: callbackFunction,
           scrollDirection: Axis.horizontal,
         ),
       ),

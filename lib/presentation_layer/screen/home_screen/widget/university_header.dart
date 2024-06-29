@@ -38,9 +38,9 @@ class UniversityHeader extends StatelessWidget {
           //   ),
           // ),
         ),
-        Positioned(
+        PositionedDirectional(
+          start: 5,
           bottom: 3,
-          right: 3,
           child: CustomCircleImage(
             radius: 45,
             image:

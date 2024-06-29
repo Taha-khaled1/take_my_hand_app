@@ -27,7 +27,7 @@ class HelperView {
 
   static double widthForTextField(DeviceInfo deviceInfo) {
     if (deviceInfo.deviceType == DeviceType.Mobile) {
-      return deviceInfo.localWidth * 0.99;
+      return deviceInfo.localWidth * 0.92;
     } else {
       return 600;
     }

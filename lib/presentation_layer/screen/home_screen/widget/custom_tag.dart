@@ -5,23 +5,33 @@ class CustomTag extends StatelessWidget {
     super.key,
     required this.title,
     required this.color,
+    this.width,
+    this.height,
+    this.horizontalPadding,
+    this.borderRadius,
+    this.colorText,
   });
   final String title;
-  final Color color;
+  final double? width, height, horizontalPadding, borderRadius;
+  final Color? color, colorText;
   @override
   Widget build(BuildContext context) {
     return Container(
-      alignment: Alignment.center,
-      width: 50,
-      height: 25,
+      padding: EdgeInsets.symmetric(
+        horizontal: horizontalPadding ?? 10,
+        vertical: 5,
+      ),
+      // alignment: Alignment.center,
+      // width: width ?? 50,
+      // height: height ?? 25,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(6),
+        borderRadius: BorderRadius.circular(borderRadius ?? 6),
       ),
       child: Text(
         title,
         style: MangeStyles().getSemiBoldStyle(
-          color: Color(0xffFFFFFF),
+          color: colorText ?? Color(0xffFFFFFF),
           fontSize: 12,
         ),
       ),

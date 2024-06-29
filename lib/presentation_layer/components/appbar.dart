@@ -1,10 +1,10 @@
 import 'package:take_hand/presentation_layer/components/custom_back_button.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 
-PreferredSizeWidget appbar(String title) {
+PreferredSizeWidget appbar(String title, {Color? color}) {
   return AppBar(
     elevation: 0,
-    backgroundColor: ColorManager.background,
+    backgroundColor: color ?? ColorManager.background,
     title: Text(
       title,
       style: MangeStyles.textButtonStyle,
