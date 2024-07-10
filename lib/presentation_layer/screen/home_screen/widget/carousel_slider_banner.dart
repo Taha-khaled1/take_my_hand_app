@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 
@@ -10,10 +11,12 @@ class CarouselSliderBanner extends StatelessWidget {
     this.viewportFraction,
     this.callbackFunction,
     this.enlargeFactor,
+    this.autoPlay,
   });
   final List<Widget> items;
   final double? height, aspectRatio, viewportFraction, enlargeFactor;
   final void Function(int, CarouselPageChangedReason)? callbackFunction;
+  final bool? autoPlay;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -33,7 +36,7 @@ class CarouselSliderBanner extends StatelessWidget {
           initialPage: 0,
           enableInfiniteScroll: true,
           reverse: false,
-          autoPlay: true,
+          autoPlay: autoPlay ?? true,
           autoPlayInterval: const Duration(seconds: 3),
           autoPlayAnimationDuration: const Duration(seconds: 2),
           autoPlayCurve: Curves.fastOutSlowIn,
@@ -47,20 +50,13 @@ class CarouselSliderBanner extends StatelessWidget {
   }
 }
 
-List<Widget> x = [
-  const BannerCard(color: ColorManager.error, image: '', text: ''),
-  const BannerCard(color: ColorManager.grey2, image: '', text: ''),
-];
-
 class BannerCard extends StatelessWidget {
   const BannerCard({
     super.key,
     required this.image,
     required this.text,
-    required this.color,
   });
   final String image, text;
-  final Color color;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -82,10 +78,17 @@ class BannerCard extends StatelessWidget {
           ),
         ],
         borderRadius: BorderRadius.circular(25),
-        color: color,
+        color: ColorManager.background,
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(25),
+        child: CachedNetworkImage(
+          imageUrl: image,
+          fit: BoxFit.cover,
+          placeholder: (context, url) => Center(
+            child: CircularProgressIndicator(),
+          ),
+        ),
         // child: Image.network(
         //   element.image!,
         //   fit: BoxFit.cover,

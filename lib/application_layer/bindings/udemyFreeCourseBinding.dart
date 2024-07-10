@@ -1,5 +1,6 @@
 import 'package:take_hand/presentation_layer/screen/article_detalis_screen/article_detalis_controller.dart';
 import 'package:take_hand/presentation_layer/screen/chatbot_screen/chatbot_controller.dart';
+import 'package:take_hand/presentation_layer/screen/classcentral_screen/classcentral_controller.dart';
 import 'package:take_hand/presentation_layer/screen/podcast_detalis_screen/podcast_detalis_controller.dart';
 import 'package:take_hand/presentation_layer/screen/udemy_screen/udemy_controller.dart';
 import 'package:take_hand/presentation_layer/screen/university_college_screen/university_college_controller.dart';
@@ -47,5 +48,12 @@ class BodcastDetalisBinding extends Bindings {
   @override
   void dependencies() {
     Get.lazyPut<BodcastDetalisController>(() => BodcastDetalisController());
+  }
+}
+
+class ClassCentralBinding extends Bindings {
+  @override
+  void dependencies() {
+    Get.lazyPut<ClassCentralController>(() => ClassCentralController());
   }
 }

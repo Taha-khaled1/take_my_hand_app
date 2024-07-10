@@ -1,7 +1,5 @@
-import 'dart:math';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
-import 'package:take_hand/presentation_layer/components/custom_butten.dart';
 import 'package:take_hand/presentation_layer/screen/free_course_platforms/course_platforms_controller.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 
@@ -37,9 +35,11 @@ class PlatformCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                      backgroundColor: ColorManager.kPrimary,
+                      backgroundColor: ColorManager.white,
                       radius: 35,
-                      backgroundImage: CachedNetworkImageProvider(imageUrl),
+                      backgroundImage: CachedNetworkImageProvider(
+                        imageUrl,
+                      ),
                     ),
                     SizedBox(width: 16),
                     Expanded(

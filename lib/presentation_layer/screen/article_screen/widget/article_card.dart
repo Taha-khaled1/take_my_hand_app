@@ -26,6 +26,7 @@ class ArticleCard extends StatelessWidget {
       builder: (context, deviceInfo) {
         return GestureDetector(
           onTap: () {
+            print(date);
             Get.toNamed(Routes.articleDetalis);
           },
           child: Padding(
@@ -49,7 +50,7 @@ class ArticleCard extends StatelessWidget {
                         // width: deviceInfo.localWidth * 0.9,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(7),
-                          child: Image.asset(
+                          child: Image.network(
                             imageUrl,
                             width: double.infinity,
                             height:
@@ -82,11 +83,12 @@ class ArticleCard extends StatelessWidget {
                             fontSize: FontSize.s16,
                           ),
                         ),
-                        AppSizedBox.sizedBox_5,
+                        AppSizedBox.sizedBox_10,
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text('$date - ${readTime} Mins read',
+                            Text(
+                                '${HelperFunction.formatTimeCreateAt(date, 'en')} - ${readTime} Mins read',
                                 style: TextStyle(
                                     fontSize: 10, color: Colors.grey)),
                             Row(

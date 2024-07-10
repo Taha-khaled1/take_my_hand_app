@@ -1,8 +1,38 @@
+import 'dart:convert';
+
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:intl/intl.dart';
+import 'package:take_hand/presentation_layer/resources/msnge_api.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HelperFunction {
+  static List<String> StringTolist(String imagesJson) {
+    // Parse the JSON string into a dynamic list
+    List<dynamic> jsonList = jsonDecode(imagesJson);
+
+    // Convert dynamic list to list of strings
+    List<String> images = jsonList.map((url) => url.toString()).toList();
+
+    // Print the list of images (for verification)
+    // print(images);
+    return images;
+  }
+
+  static String formatTimeCreateAt(String time, String language) {
+    String originalDateString = '2024-07-05T02:03:26.000000Z';
+    DateTime dateTime = DateTime.parse(originalDateString);
+
+// Format for Arabic locale
+    var formatterArabic = DateFormat('EEEE، dd MMMM yyyy'); // , 'ar'   hh:mm a
+    String formattedDateArabic = formatterArabic.format(dateTime);
+
+// Format for English locale
+    var formatterEnglish = DateFormat('EEEE, MMMM dd, yyyy'); // , 'en'  hh:mm a
+    String formattedDateEnglish = formatterEnglish.format(dateTime);
+    return language == 'ar' ? formattedDateArabic : formattedDateEnglish;
+  }
+
   static String formatTime(int timestampInMillis, String language) {
     DateTime dateTime = DateTime.fromMillisecondsSinceEpoch(timestampInMillis);
     int hour = dateTime.hour;
@@ -45,11 +75,11 @@ class HelperFunction {
     return emailRegex.hasMatch(email);
   }
 
-  static String imageNetworkCheck(String? image) {
-    if (image == null || image.isEmpty || image == '') {
+  static String imageNetworkCheck(String? image, {bool isUrl = false}) {
+    if (image == null || image.isEmpty || image == ' ') {
       return 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png';
     }
-    return image;
+    return isUrl ? image : APiMange.baseurlImage + "/" + image;
   }
 
   static void showToast(String msg) {

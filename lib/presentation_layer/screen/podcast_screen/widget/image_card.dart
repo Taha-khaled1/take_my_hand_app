@@ -2,11 +2,14 @@ import 'package:glowy_borders/glowy_borders.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_tag.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 
-List<ImageCard> imageList = [];
-
 class ImageCard extends StatefulWidget {
-  const ImageCard({super.key});
-
+  const ImageCard({
+    super.key,
+    required this.title,
+    required this.image,
+    required this.category,
+  });
+  final String title, image, category;
   @override
   _ImageCardState createState() => _ImageCardState();
 }
@@ -33,11 +36,11 @@ class _ImageCardState extends State<ImageCard> {
             width: 230,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              image: const DecorationImage(
+              image: DecorationImage(
                 image: NetworkImage(
-                  "https://willcwood.scusd.edu/sites/main/files/imagecache/lightbox/main-images/camera_lense_0.jpeg",
+                  widget.image,
                 ),
-                fit: BoxFit.cover,
+                fit: BoxFit.fill,
               ),
             ),
           ),
@@ -54,7 +57,7 @@ class _ImageCardState extends State<ImageCard> {
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: CustomTag(
-            title: "تكنلوجيا",
+            title: widget.category,
             color: ColorManager.error,
             colorText: Colors.white,
           ),

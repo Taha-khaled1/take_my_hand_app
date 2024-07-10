@@ -37,22 +37,16 @@ class BodyAccountScreen extends StatelessWidget {
                 height: 15,
               ),
               CustomListtile(
-                widget: Image.asset(
-                  "assets/icons/customer-service.png",
-                  color: ColorManager.white,
-                  width: 30,
-                ),
+                widget: const Icon(Icons.support_agent_outlined,
+                    color: ColorManager.white),
                 titel: "الدعم الفني",
                 onTap: () {
                   Get.to(() => const SupportScreen());
                 },
               ),
               CustomListtile(
-                widget: Image.asset(
-                  "assets/icons/info.png",
-                  color: ColorManager.white,
-                  width: 30,
-                ),
+                widget:
+                    const Icon(Icons.info_outline, color: ColorManager.white),
                 titel: "معلومات عنا",
                 onTap: () {
                   Get.to(() => const AboutPage());

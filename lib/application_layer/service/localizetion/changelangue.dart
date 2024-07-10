@@ -14,6 +14,7 @@ class LocaleController extends GetxController {
   void onInit() {
     String? sharedPrefLang = sharedPreferences.getString("lang");
     if (sharedPrefLang == "ar") {
+      print("ar");
       language = const Locale("ar");
     } else if (sharedPrefLang == "en") {
       language = const Locale("en");

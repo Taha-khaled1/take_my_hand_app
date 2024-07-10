@@ -1,6 +1,3 @@
-import 'package:flutter_gemini/flutter_gemini.dart';
-import 'package:take_hand/data_layer/models/message.dart';
-import 'package:take_hand/presentation_layer/screen/chatbot_screen/chatbot_screen.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 
 class MessageInputField extends StatelessWidget {

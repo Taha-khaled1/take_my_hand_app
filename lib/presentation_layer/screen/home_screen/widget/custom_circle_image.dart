@@ -11,27 +11,25 @@ class CustomCircleImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CircleAvatar(
+      backgroundColor: ColorManager.white,
       radius: radius,
       // استخدام عنصر ClipOval لعرض الصورة بشكل كامل داخل دائرة CircleAvatar
-      child: ClipOval(
-        child: CachedNetworkImage(
-          errorWidget: (context, url, error) {
-            return Image.network(
-              'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
-            );
-          },
-          placeholder: (context, url) {
-            return CircularProgressIndicator(
-              color: Colors.purple,
-            );
-          },
-          imageUrl:
-              image!, //?? sharedPreferences.getString('image').toString(),
-          width: radius * 2,
-          height: radius * 2,
-          fit: BoxFit
-              .fill, // تحديد كيفية توسيط وتغطية الصورة داخل دائرة ال CircleAvatar
-        ),
+      child: CachedNetworkImage(
+        errorWidget: (context, url, error) {
+          return Image.network(
+            'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png',
+          );
+        },
+        placeholder: (context, url) {
+          return CircularProgressIndicator(
+            color: Colors.purple,
+          );
+        },
+        imageUrl: image!, //?? sharedPreferences.getString('image').toString(),
+        width: radius * 1.5,
+        height: radius * 1.5,
+        fit: BoxFit
+            .contain, // تحديد كيفية توسيط وتغطية الصورة داخل دائرة ال CircleAvatar
       ),
     );
   }

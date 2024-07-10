@@ -1,5 +1,3 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_gemini/flutter_gemini.dart';
 import 'package:take_hand/application_layer/app/myapp.dart';
 // import 'package:firebase_core/firebase_core.dart';
@@ -12,6 +10,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   Gemini.init(apiKey: 'AIzaSyBsrmxYNSTZF8YJmp4e-kPO_TouFaLezZU');
+  // initializeDateFormatting('ar', null); // Arabic
 
   sharedPreferences = await SharedPreferences.getInstance();
   sharedPreferences.setString("lang", 'ar');

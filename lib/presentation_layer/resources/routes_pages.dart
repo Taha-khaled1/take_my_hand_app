@@ -3,6 +3,7 @@ import 'package:take_hand/presentation_layer/resources/routes_manager.dart';
 import 'package:get/get.dart';
 import 'package:take_hand/presentation_layer/screen/article_detalis_screen/article_detalis_screen.dart';
 import 'package:take_hand/presentation_layer/screen/chatbot_screen/chatbot_screen.dart';
+import 'package:take_hand/presentation_layer/screen/classcentral_screen/classcentral_screen.dart';
 import 'package:take_hand/presentation_layer/screen/main_apps/main_app.dart';
 import 'package:take_hand/presentation_layer/screen/podcast_detalis_screen/podcast_detalis_screen.dart';
 import 'package:take_hand/presentation_layer/screen/udemy_screen/udemy_screen.dart';
@@ -43,6 +44,11 @@ List<GetPage<dynamic>>? getPage = [
     name: Routes.podcastDetalis,
     page: () => const BodcastDetalisScreen(),
     binding: BodcastDetalisBinding(),
+  ),
+  GetPage(
+    name: Routes.classcentral,
+    page: () => const ClassCentralScreen(),
+    binding: ClassCentralBinding(),
   ),
 ];
   // GetPage(

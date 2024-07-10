@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_markdown/flutter_markdown.dart';
 import 'package:take_hand/presentation_layer/screen/chatbot_screen/chatbot_controller.dart';
 import 'package:take_hand/presentation_layer/src/account_url.dart';
-import 'package:take_hand/presentation_layer/src/style_packge.dart';
 import 'package:take_hand/presentation_layer/utils/helper_function.dart';
 
 class ChatMessage extends StatelessWidget {

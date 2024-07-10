@@ -5,9 +5,15 @@ class CustomBackButton extends StatelessWidget {
   const CustomBackButton({
     super.key,
     this.onTap,
+    this.height,
+    this.width,
+    this.borderRadius,
+    this.child,
   });
 
   final void Function()? onTap;
+  final double? height, width, borderRadius;
+  final Widget? child;
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -19,19 +25,17 @@ class CustomBackButton extends StatelessWidget {
             },
         child: ClayContainer(
           color: ColorManager.background,
-          height: 40,
-          width: 40,
-          borderRadius: 50,
+          height: height ?? 40,
+          width: width ?? 40,
+          borderRadius: borderRadius ?? 50,
           spread: 2,
           curveType: CurveType.concave,
-          child: Directionality(
-            textDirection: TextDirection.ltr,
-            child: Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.grey[700],
-              size: 30,
-            ),
-          ),
+          child: child ??
+              Icon(
+                Icons.arrow_forward_ios,
+                color: ColorManager.white,
+                size: 30,
+              ),
         ),
       ),
     );

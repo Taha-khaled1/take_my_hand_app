@@ -9,4 +9,5 @@ class Routes {
   static const String chatbotScreen = "/chatbot-screen";
   static const String articleDetalis = "/article-detalis";
   static const String podcastDetalis = "/podcast-detalis";
+  static const String classcentral = "/classcentral";
 }

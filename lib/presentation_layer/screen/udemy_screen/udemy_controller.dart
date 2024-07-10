@@ -4,7 +4,6 @@ import 'package:take_hand/presentation_layer/src/get_packge.dart';
 import 'package:take_hand/presentation_layer/utils/helper_function.dart';
 
 class UdemyFreeCourseController extends GetxController with UdemySource {
-  String x = "--";
   late StatusRequest statusRequest;
   UdemyFreeCoursesCouponModel? udemyFreeCoursesCouponModel;
   var response;

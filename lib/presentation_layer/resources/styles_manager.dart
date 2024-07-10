@@ -12,6 +12,7 @@ class MangeStyles {
 
   static const TextStyle textButtonStyle = TextStyle(
     fontFamily: FontConstants.fontFamily,
+    fontWeight: FontWeightManager.semiBold,
     fontSize: FontSize.s18,
     color: ColorManager.white,
   );

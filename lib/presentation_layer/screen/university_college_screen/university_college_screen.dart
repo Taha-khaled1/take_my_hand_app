@@ -1,12 +1,8 @@
-import 'package:take_hand/presentation_layer/resources/values_manager.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_circle_image.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_tag.dart';
 import 'package:take_hand/presentation_layer/screen/university_college_screen/university_college_controller.dart';
 import 'package:take_hand/presentation_layer/screen/university_detalis/university_detalis_screen.dart';
 import 'package:take_hand/presentation_layer/src/account_url.dart';
-import 'package:take_hand/presentation_layer/src/components_packge.dart';
-import 'package:take_hand/presentation_layer/src/get_packge.dart';
-import 'package:take_hand/presentation_layer/src/style_packge.dart';
 
 class UniversityCollegeScreen extends GetView<UniversityCollegeController> {
   const UniversityCollegeScreen({super.key});
