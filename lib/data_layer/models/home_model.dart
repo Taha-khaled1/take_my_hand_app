@@ -27,7 +27,7 @@ class Data {
   List<Banners>? banners;
   List<Articles>? articles;
   List<CareersField>? careersField;
-  List<CareersCollege>? careersCollege;
+  List<CareersField>? careersCollege;
   List<Courses>? courses;
 
   Data(
@@ -64,9 +64,9 @@ class Data {
       });
     }
     if (json['careers_college'] != null) {
-      careersCollege = <CareersCollege>[];
+      careersCollege = <CareersField>[];
       json['careers_college'].forEach((v) {
-        careersCollege!.add(new CareersCollege.fromJson(v));
+        careersCollege!.add(new CareersField.fromJson(v));
       });
     }
     if (json['courses'] != null) {
@@ -104,350 +104,191 @@ class Data {
 }
 
 class Universities {
-  int? id;
-  String? titleEn;
-  String? titleAr;
-  String? logo;
-  String? images;
-  int? isApplicationOpen;
-  int? views;
-  int? isActive;
-  int? isPopular;
-  int? countryId;
-  String? established;
-  String? locally;
-  String? globally;
-  String? descriptionAr;
-  String? descriptionEn;
-  String? address;
-  String? email;
-  String? website;
-  String? phone;
-  String? abbreviation;
-  String? type;
-  int? isYoutube;
-  String? video;
-  int? totalColleges;
-  String? latitude;
-  String? longitude;
+  String? title;
   String? createdAt;
-  String? updatedAt;
+  String? images;
+  int? id;
+  String? address;
+  String? logo;
+  int? views;
+  int? isPopular;
+  String? globally;
+  int? totalColleges;
 
   Universities(
-      {this.id,
-      this.titleEn,
-      this.titleAr,
-      this.logo,
-      this.images,
-      this.isApplicationOpen,
-      this.views,
-      this.isActive,
-      this.isPopular,
-      this.countryId,
-      this.established,
-      this.locally,
-      this.globally,
-      this.descriptionAr,
-      this.descriptionEn,
-      this.address,
-      this.email,
-      this.website,
-      this.phone,
-      this.abbreviation,
-      this.type,
-      this.isYoutube,
-      this.video,
-      this.totalColleges,
-      this.latitude,
-      this.longitude,
+      {this.title,
       this.createdAt,
-      this.updatedAt});
+      this.images,
+      this.id,
+      this.address,
+      this.logo,
+      this.views,
+      this.isPopular,
+      this.globally,
+      this.totalColleges});
 
   Universities.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    titleEn = json['title_en'];
-    titleAr = json['title_ar'];
-    logo = json['logo'];
-    images = json['images'];
-    isApplicationOpen = json['is_application_open'];
-    views = json['views'];
-    isActive = json['is_active'];
-    isPopular = json['is_popular'];
-    countryId = json['country_id'];
-    established = json['established'];
-    locally = json['locally'];
-    globally = json['globally'];
-    descriptionAr = json['description_ar'];
-    descriptionEn = json['description_en'];
-    address = json['address'];
-    email = json['email'];
-    website = json['website'];
-    phone = json['phone'];
-    abbreviation = json['abbreviation'];
-    type = json['type'];
-    isYoutube = json['is_youtube'];
-    video = json['video'];
-    totalColleges = json['total_colleges'];
-    latitude = json['latitude'];
-    longitude = json['longitude'];
+    title = json['title'];
     createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    images = json['images'];
+    id = json['id'];
+    address = json['address'];
+    logo = json['logo'];
+    views = json['views'];
+    isPopular = json['is_popular'];
+    globally = json['globally'];
+    totalColleges = json['total_colleges'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title_en'] = this.titleEn;
-    data['title_ar'] = this.titleAr;
-    data['logo'] = this.logo;
-    data['images'] = this.images;
-    data['is_application_open'] = this.isApplicationOpen;
-    data['views'] = this.views;
-    data['is_active'] = this.isActive;
-    data['is_popular'] = this.isPopular;
-    data['country_id'] = this.countryId;
-    data['established'] = this.established;
-    data['locally'] = this.locally;
-    data['globally'] = this.globally;
-    data['description_ar'] = this.descriptionAr;
-    data['description_en'] = this.descriptionEn;
-    data['address'] = this.address;
-    data['email'] = this.email;
-    data['website'] = this.website;
-    data['phone'] = this.phone;
-    data['abbreviation'] = this.abbreviation;
-    data['type'] = this.type;
-    data['is_youtube'] = this.isYoutube;
-    data['video'] = this.video;
-    data['total_colleges'] = this.totalColleges;
-    data['latitude'] = this.latitude;
-    data['longitude'] = this.longitude;
+    data['title'] = this.title;
     data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    data['images'] = this.images;
+    data['id'] = this.id;
+    data['address'] = this.address;
+    data['logo'] = this.logo;
+    data['views'] = this.views;
+    data['is_popular'] = this.isPopular;
+    data['globally'] = this.globally;
+    data['total_colleges'] = this.totalColleges;
     return data;
   }
 }
 
 class Banners {
-  int? id;
-  String? imageAr;
-  String? imageEn;
-  int? arrange;
-  String? name;
-  int? status;
+  String? image;
   String? type;
+  String? name;
+  int? id;
   String? bannerUrl;
-  int? keyId;
+  String? keyId;
   String? key;
-  String? createdAt;
-  String? updatedAt;
 
   Banners(
-      {this.id,
-      this.imageAr,
-      this.imageEn,
-      this.arrange,
-      this.name,
-      this.status,
+      {this.image,
       this.type,
+      this.name,
+      this.id,
       this.bannerUrl,
       this.keyId,
-      this.key,
-      this.createdAt,
-      this.updatedAt});
+      this.key});
 
   Banners.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    imageAr = json['image_ar'];
-    imageEn = json['image_en'];
-    arrange = json['arrange'];
-    name = json['name'];
-    status = json['status'];
+    image = json['image'];
     type = json['type'];
+    name = json['name'];
+    id = json['id'];
     bannerUrl = json['banner_url'];
     keyId = json['key_id'];
     key = json['key'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['image_ar'] = this.imageAr;
-    data['image_en'] = this.imageEn;
-    data['arrange'] = this.arrange;
-    data['name'] = this.name;
-    data['status'] = this.status;
+    data['image'] = this.image;
     data['type'] = this.type;
+    data['name'] = this.name;
+    data['id'] = this.id;
     data['banner_url'] = this.bannerUrl;
     data['key_id'] = this.keyId;
     data['key'] = this.key;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
     return data;
   }
 }
 
 class Articles {
-  int? id;
-  String? titleEn;
-  String? titleAr;
-  String? descriptionAr;
-  String? descriptionEn;
-  int? views;
-  int? isActive;
+  String? title;
+  String? createdAt;
   String? image;
   String? createdBy;
-  String? createdByImage;
+  int? id;
   int? articleCategoryId;
-  String? createdAt;
-  String? updatedAt;
+  Category? category;
 
   Articles(
-      {this.id,
-      this.titleEn,
-      this.titleAr,
-      this.descriptionAr,
-      this.descriptionEn,
-      this.views,
-      this.isActive,
+      {this.title,
+      this.createdAt,
       this.image,
       this.createdBy,
-      this.createdByImage,
+      this.id,
       this.articleCategoryId,
-      this.createdAt,
-      this.updatedAt});
+      this.category});
 
   Articles.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    titleEn = json['title_en'];
-    titleAr = json['title_ar'];
-    descriptionAr = json['description_ar'];
-    descriptionEn = json['description_en'];
-    views = json['views'];
-    isActive = json['is_active'];
+    title = json['title'];
+    createdAt = json['created_at'];
     image = json['image'];
     createdBy = json['created_by'];
-    createdByImage = json['created_by_image'];
+    id = json['id'];
     articleCategoryId = json['article_category_id'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    category = json['category'] != null
+        ? new Category.fromJson(json['category'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title_en'] = this.titleEn;
-    data['title_ar'] = this.titleAr;
-    data['description_ar'] = this.descriptionAr;
-    data['description_en'] = this.descriptionEn;
-    data['views'] = this.views;
-    data['is_active'] = this.isActive;
+    data['title'] = this.title;
+    data['created_at'] = this.createdAt;
     data['image'] = this.image;
     data['created_by'] = this.createdBy;
-    data['created_by_image'] = this.createdByImage;
+    data['id'] = this.id;
     data['article_category_id'] = this.articleCategoryId;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    if (this.category != null) {
+      data['category'] = this.category!.toJson();
+    }
     return data;
   }
 }
 
-class CareersCollege {
+class Category {
   int? id;
-  String? titleEn;
-  String? titleAr;
-  int? views;
-  int? isActive;
-  String? image;
-  String? type;
-  String? createdAt;
-  String? updatedAt;
+  String? title;
 
-  CareersCollege(
-      {this.id,
-      this.titleEn,
-      this.titleAr,
-      this.views,
-      this.isActive,
-      this.image,
-      this.type,
-      this.createdAt,
-      this.updatedAt});
+  Category({this.id, this.title});
 
-  CareersCollege.fromJson(Map<String, dynamic> json) {
+  Category.fromJson(Map<String, dynamic> json) {
     id = json['id'];
-    titleEn = json['title_en'];
-    titleAr = json['title_ar'];
-    views = json['views'];
-    isActive = json['is_active'];
-    image = json['image'];
-    type = json['type'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    title = json['title'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['id'] = this.id;
-    data['title_en'] = this.titleEn;
-    data['title_ar'] = this.titleAr;
-    data['views'] = this.views;
-    data['is_active'] = this.isActive;
-    data['image'] = this.image;
-    data['type'] = this.type;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    data['title'] = this.title;
     return data;
   }
 }
 
 class CareersField {
-  int? id;
-  String? titleEn;
-  String? titleAr;
-  int? views;
-  int? isActive;
+  String? title;
+  String? createdAt;
   String? image;
   String? type;
-  String? createdAt;
-  String? updatedAt;
+  int? views;
+  int? id;
 
   CareersField(
-      {this.id,
-      this.titleEn,
-      this.titleAr,
-      this.views,
-      this.isActive,
-      this.image,
-      this.type,
-      this.createdAt,
-      this.updatedAt});
+      {this.title, this.createdAt, this.image, this.type, this.views, this.id});
 
   CareersField.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    titleEn = json['title_en'];
-    titleAr = json['title_ar'];
-    views = json['views'];
-    isActive = json['is_active'];
+    title = json['title'];
+    createdAt = json['created_at'];
     image = json['image'];
     type = json['type'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
+    views = json['views'];
+    id = json['id'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title_en'] = this.titleEn;
-    data['title_ar'] = this.titleAr;
-    data['views'] = this.views;
-    data['is_active'] = this.isActive;
+    data['title'] = this.title;
+    data['created_at'] = this.createdAt;
     data['image'] = this.image;
     data['type'] = this.type;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
+    data['views'] = this.views;
+    data['id'] = this.id;
     return data;
   }
 }

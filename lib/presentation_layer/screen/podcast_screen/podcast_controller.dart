@@ -5,7 +5,7 @@ import 'package:take_hand/presentation_layer/src/get_packge.dart';
 import 'package:take_hand/presentation_layer/utils/helper_function.dart';
 
 class BodcastController extends GetxController with PodcastSource {
-  late StatusRequest statusRequest;
+  late StatusRequest statusRequest = StatusRequest.loading;
   BodcastModel? podcastModel;
   List<ImageCard> imageCards = [];
   var response;

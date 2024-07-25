@@ -11,5 +11,10 @@ class APiMange {
   static const String home = "$baseurl/home";
   static const String providers = "$baseurl/providers";
   static const String podcasts = "$baseurl/podcasts";
+  static const String articles = "$baseurl/articles";
+  static const String articlesDetalis = "$baseurl/article"; // /1
+  static const String podcast = "$baseurl/podcast";
+
+  ///1
 }
 // https://www.real.discount/api-web/all-courses/?store=Coursera&page=1&per_page=10&orderby=undefined&free=0&search=&language=&cat=&subcat=&editorschoices=

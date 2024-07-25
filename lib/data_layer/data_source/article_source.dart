@@ -1,20 +1,20 @@
 import 'package:take_hand/data_layer/database/database.dart';
 import 'package:take_hand/presentation_layer/resources/msnge_api.dart';
 
-mixin PodcastSource {
-  dynamic getPodcastsHome() async {
+mixin ArticleSource {
+  dynamic getArticles() async {
     CurdSQL curd = CurdSQL();
     var respons = await curd.getrequest(
-      APiMange.podcasts,
+      APiMange.articles,
     );
 
     return respons;
   }
 
-  dynamic getPodcastDetails(int id) async {
+  dynamic getArticlesDetalis(int id) async {
     CurdSQL curd = CurdSQL();
     var respons = await curd.getrequest(
-      APiMange.podcast + "/$id",
+      APiMange.articlesDetalis + "/$id",
     );
 
     return respons;

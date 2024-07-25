@@ -10,6 +10,7 @@ class PodcastCard extends StatelessWidget {
   final String imageUrl;
   final String title;
   final String date;
+  final int id;
   final String creator;
   final String platformLogo;
 
@@ -20,6 +21,7 @@ class PodcastCard extends StatelessWidget {
     required this.date,
     required this.creator,
     required this.platformLogo,
+    required this.id,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,7 @@ class PodcastCard extends StatelessWidget {
         child: InkWell(
           borderRadius: BorderRadius.circular(10),
           onTap: () {
-            Get.toNamed(Routes.podcastDetalis);
+            Get.toNamed(Routes.podcastDetalis, arguments: {"id": id});
           },
           child: Padding(
             padding: const EdgeInsets.all(8.0),

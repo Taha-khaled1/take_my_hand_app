@@ -22,7 +22,7 @@ class HomeController extends GetxController with HomeSource {
         for (var item in homeModel!.data!.banners!) {
           banners.add(
             BannerCard(
-              image: HelperFunction.imageNetworkCheck(item.imageEn!),
+              image: HelperFunction.imageNetworkCheck(item.image!),
               text: '',
             ),
           );

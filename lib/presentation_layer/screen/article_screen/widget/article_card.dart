@@ -8,7 +8,7 @@ import 'package:take_hand/presentation_layer/utils/helper_function.dart';
 class ArticleCard extends StatelessWidget {
   final String imageUrl;
   final String title;
-
+  final int id;
   final String date;
   final int readTime;
 
@@ -18,6 +18,7 @@ class ArticleCard extends StatelessWidget {
     required this.title,
     required this.date,
     required this.readTime,
+    required this.id,
   }) : super(key: key);
 
   @override
@@ -27,7 +28,7 @@ class ArticleCard extends StatelessWidget {
         return GestureDetector(
           onTap: () {
             print(date);
-            Get.toNamed(Routes.articleDetalis);
+            Get.toNamed(Routes.articleDetalis, arguments: {"id": id});
           },
           child: Padding(
             padding: const EdgeInsets.only(bottom: 2.5, top: 2.5),

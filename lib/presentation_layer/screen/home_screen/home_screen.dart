@@ -56,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                                       ?.universities![index].totalColleges
                                       .toString(),
                                   titel: _.homeModel?.data?.universities![index]
-                                      .titleAr,
+                                      .title,
                                   images: HelperFunction.StringTolist(
                                     _.homeModel?.data?.universities![index]
                                             .images ??
@@ -82,12 +82,14 @@ class HomeScreen extends StatelessWidget {
                               return Padding(
                                 padding: EdgeInsetsDirectional.only(start: 8),
                                 child: ArticleCard(
+                                  id: _.homeModel?.data?.articles![index].id ??
+                                      1,
                                   imageUrl: HelperFunction.imageNetworkCheck(
                                     _.homeModel?.data?.articles![index].image,
                                     isUrl: true,
                                   ),
                                   title: _.homeModel?.data?.articles![index]
-                                          .titleAr ??
+                                          .title ??
                                       "",
                                   date: _.homeModel?.data?.articles![index]
                                           .createdAt ??
@@ -126,7 +128,7 @@ class HomeScreen extends StatelessWidget {
                                         .image,
                                   ),
                                   collegeName: _.homeModel?.data
-                                          ?.careersCollege![index].titleAr ??
+                                          ?.careersCollege![index].title ??
                                       "",
                                 ),
                               );
@@ -160,7 +162,7 @@ class HomeScreen extends StatelessWidget {
                                         .image,
                                   ),
                                   collegeName: _.homeModel?.data
-                                          ?.careersField![index].titleAr ??
+                                          ?.careersField![index].title ??
                                       "",
                                 ),
                               );

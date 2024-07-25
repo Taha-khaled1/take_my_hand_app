@@ -5,6 +5,7 @@ import 'package:take_hand/presentation_layer/screen/podcast_screen/widget/podcas
 import 'package:take_hand/presentation_layer/screen/university_detalis/university_detalis_screen.dart';
 import 'package:take_hand/presentation_layer/src/get_packge.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
+import 'package:take_hand/presentation_layer/utils/view_handlers/view_handlers.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class BodcastDetalisScreen extends GetView<BodcastDetalisController> {
@@ -14,119 +15,82 @@ class BodcastDetalisScreen extends GetView<BodcastDetalisController> {
     return Scaffold(
       appBar: appbar("بودكاست"),
       backgroundColor: ColorManager.background,
-      // bottomNavigationBar: Container(
-      //   // margin:
-      //   //     const EdgeInsets.only(right: 100, left: 100, bottom: 20, top: 10),
-      //   // alignment: Alignment.center,
-      //   width: 100,
-      //   height: 50,
-      //   decoration: BoxDecoration(
-      //     color: ColorManager.backgroundpersonalimage,
-      //     borderRadius: BorderRadius.circular(15),
-      //   ),
-      //   child: Row(
-      //     crossAxisAlignment: CrossAxisAlignment.center,
-      //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      //     children: [
-      //       AppSizedBox.sizedBox_w10,
-      //       GestureDetector(
-      //         onTap: () {},
-      //         child: const Padding(
-      //           padding: EdgeInsets.all(8.0),
-      //           child: Icon(
-      //             LineIcons.heart,
-      //             size: 30,
-      //             color: ColorManager.kPrimary,
-      //           ),
-      //         ),
-      //       ),
-      //       const SizedBox(
-      //         height: 28,
-      //         child: VerticalDivider(
-      //           thickness: 2,
-      //           color: ColorManager.kTextgray,
-      //         ),
-      //       ),
-      //       Icon(
-      //         Icons.share,
-      //         size: 30,
-      //         color: ColorManager.kgold,
-      //       ),
-      //       AppSizedBox.sizedBox_w10,
-      //     ],
-      //   ),
-      // ),
       body: InfoWidget(
         builder: (context, deviceInfo) {
           return GetBuilder<BodcastDetalisController>(
             builder: (_) {
-              return SingleChildScrollView(
-                child: controller.isLoading
-                    ? const Center(child: CircularProgressIndicator())
-                    : Stack(
+              return HandlingDataView(
+                statusRequest: _.statusRequest,
+                child: SingleChildScrollView(
+                  child: Stack(
+                    children: [
+                      Column(
                         children: [
-                          Column(
-                            children: [
-                              YoutubePlayer(
-                                controller: controller.youtubePlayerController,
-                                showVideoProgressIndicator: true,
-                                progressIndicatorColor: Colors.amber,
-                                progressColors: const ProgressBarColors(
-                                  playedColor: Colors.amber,
-                                  handleColor: Colors.amberAccent,
-                                ),
-                                onReady: () {
-                                  controller.youtubePlayerController
-                                      .addListener(() {});
-                                },
+                          if (controller.youtubePlayerController != null)
+                            YoutubePlayer(
+                              controller: controller.youtubePlayerController!,
+                              showVideoProgressIndicator: true,
+                              progressIndicatorColor: Colors.amber,
+                              progressColors: const ProgressBarColors(
+                                playedColor: Colors.amber,
+                                handleColor: Colors.amberAccent,
                               ),
-                              Padding(
-                                padding: const EdgeInsets.all(10.0),
-                                child: Text(
-                                  "عم حربي يفحم المذيعة الزملكاوية إزاي ال 7 أكبر من ال 9 في قضية نادي القرن الحكيكي",
-                                  style: MangeStyles().getSemiBoldStyle(
-                                    color: Colors.white,
-                                    fontSize: FontSize.s17,
-                                  ),
-                                ),
+                              onReady: () {
+                                controller.youtubePlayerController!
+                                    .addListener(() {});
+                              },
+                            ),
+                          Padding(
+                            padding: const EdgeInsets.all(10.0),
+                            child: Text(
+                              "عم حربي يفحم المذيعة الزملكاوية إزاي ال 7 أكبر من ال 9 في قضية نادي القرن الحكيكي",
+                              style: MangeStyles().getSemiBoldStyle(
+                                color: Colors.white,
+                                fontSize: FontSize.s17,
                               ),
-                              CustomCardWidget(),
-                              Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 10.0,
-                                  vertical: 8,
-                                ),
-                                child: ReadMoreText(
-                                  text:
-                                      "hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world",
-                                ),
-                              ),
-                              SectionHeaderAndFilter(
-                                is_more: true,
-                                title: 'المقالات',
-                                press: () {},
-                              ),
-                              ListView.builder(
-                                scrollDirection: Axis.vertical,
-                                shrinkWrap: true,
-                                physics: const NeverScrollableScrollPhysics(),
-                                itemCount: 5,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return PodcastCard(
-                                    imageUrl:
-                                        'https://willcwood.scusd.edu/sites/main/files/imagecache/lightbox/main-images/camera_lense_0.jpeg',
-                                    title:
-                                        "عم حربي يفحم المذيعة الزملكاوية إزاي ال 7 أكبر من ال 9 في قضية نادي القرن الحكيكي",
-                                    date: "2023/02/02",
-                                    creator: "taha khaled",
-                                    platformLogo: "assets/icons/youtube.png",
-                                  );
-                                },
-                              ),
-                            ],
+                            ),
                           ),
+                          CustomCardWidget(),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10.0,
+                              vertical: 8,
+                            ),
+                            child: ReadMoreText(
+                              text:
+                                  "hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world hello world",
+                            ),
+                          ),
+                          SectionHeaderAndFilter(
+                            is_more: true,
+                            title: 'المقالات',
+                            press: () {},
+                          ),
+                          // ListView.builder(
+                          //   scrollDirection: Axis.vertical,
+                          //   shrinkWrap: true,
+                          //   physics: const NeverScrollableScrollPhysics(),
+                          //   itemCount: 5,
+                          //   itemBuilder: (BuildContext context, int index) {
+                          //     return PodcastCard(
+                          //       id: controller.podcastModel?.data?.podcasts!
+                          //               .data![index].id ??
+                          //           0,
+                          //       imageUrl:
+                          //           'https://willcwood.scusd.edu/sites/main/files/imagecache/lightbox/main-images/camera_lense_0.jpeg',
+                          //       title:
+                          //           "عم حربي يفحم المذيعة الزملكاوية إزاي ال 7 أكبر من ال 9 في قضية نادي القرن الحكيكي",
+                          //       date: "2023/02/02",
+                          //       creator: "taha khaled",
+                          //       platformLogo: "assets/icons/youtube.png",
+                          //     );
+                          //   },
+                          // ),
                         ],
                       ),
+                    ],
+                  ),
+                ),
               );
             },
           );

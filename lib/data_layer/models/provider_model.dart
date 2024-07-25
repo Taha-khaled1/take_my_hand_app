@@ -58,62 +58,42 @@ class Data {
 }
 
 class ProvidersUniversity {
-  int? id;
-  String? titleEn;
-  String? titleAr;
-  String? shortDescriptionAr;
-  String? shortDescriptionEn;
+  String? title;
+  String? shortDescription;
   String? name;
-  String? createdBy;
-  int? isActive;
   String? image;
+  int? id;
+  String? createdBy;
   String? type;
-  String? createdAt;
-  String? updatedAt;
 
   ProvidersUniversity(
-      {this.id,
-      this.titleEn,
-      this.titleAr,
-      this.shortDescriptionAr,
-      this.shortDescriptionEn,
+      {this.title,
+      this.shortDescription,
       this.name,
-      this.createdBy,
-      this.isActive,
       this.image,
-      this.type,
-      this.createdAt,
-      this.updatedAt});
+      this.id,
+      this.createdBy,
+      this.type});
 
   ProvidersUniversity.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    titleEn = json['title_en'];
-    titleAr = json['title_ar'];
-    shortDescriptionAr = json['short_description_ar'];
-    shortDescriptionEn = json['short_description_en'];
+    title = json['title'];
+    shortDescription = json['short_description'];
     name = json['name'];
-    createdBy = json['created_by'];
-    isActive = json['is_active'];
     image = json['image'];
+    id = json['id'];
+    createdBy = json['created_by'];
     type = json['type'];
-    createdAt = json['created_at'];
-    updatedAt = json['updated_at'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title_en'] = this.titleEn;
-    data['title_ar'] = this.titleAr;
-    data['short_description_ar'] = this.shortDescriptionAr;
-    data['short_description_en'] = this.shortDescriptionEn;
+    data['title'] = this.title;
+    data['short_description'] = this.shortDescription;
     data['name'] = this.name;
-    data['created_by'] = this.createdBy;
-    data['is_active'] = this.isActive;
     data['image'] = this.image;
+    data['id'] = this.id;
+    data['created_by'] = this.createdBy;
     data['type'] = this.type;
-    data['created_at'] = this.createdAt;
-    data['updated_at'] = this.updatedAt;
     return data;
   }
 }

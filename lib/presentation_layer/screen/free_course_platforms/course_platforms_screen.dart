@@ -23,11 +23,11 @@ class CoursePlatformsScreen extends GetView<CoursePlatformsController> {
                 itemBuilder: (BuildContext context, int index) {
                   return PlatformCard(
                     platformName: controller.providerModel?.data
-                            ?.providersPlatform?[index].titleAr ??
+                            ?.providersPlatform?[index].title ??
                         "",
                     description: controller.providerModel?.data
-                            ?.providersPlatform?[index].shortDescriptionAr ??
-                        "",
+                            ?.providersPlatform?[index].shortDescription ??
+                        "dsa",
                     imageUrl: HelperFunction.imageNetworkCheck(
                         controller.providerModel?.data
                             ?.providersPlatform?[index].image,

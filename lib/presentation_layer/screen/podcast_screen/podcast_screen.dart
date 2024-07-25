@@ -69,7 +69,7 @@ class BodcastScreen extends GetView<BodcastController> {
                       ),
                       SectionHeaderAndFilter(
                         is_more: true,
-                        title: 'المقالات',
+                        title: 'بودكاست',
                         press: () {},
                       ),
                       Transform.translate(
@@ -87,13 +87,16 @@ class BodcastScreen extends GetView<BodcastController> {
                                 right: 10,
                               ),
                               child: PodcastCard(
+                                id: controller.podcastModel?.data?.podcasts!
+                                        .data![index].id ??
+                                    0,
                                 imageUrl: HelperFunction.imageNetworkCheck(
                                   controller.podcastModel?.data?.podcasts!
                                       .data![index].image,
                                   isUrl: true,
                                 ),
                                 title: controller.podcastModel?.data?.podcasts!
-                                        .data![index].titleAr ??
+                                        .data![index].title ??
                                     "",
                                 date: controller.podcastModel?.data?.podcasts!
                                         .data![index].createdAt ??
