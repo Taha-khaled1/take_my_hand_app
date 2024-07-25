@@ -59,6 +59,7 @@ class Article {
   String? createdBy;
   int? id;
   int? articleCategoryId;
+  Category? category;
 
   Article(
       {this.title,
@@ -67,7 +68,8 @@ class Article {
       this.image,
       this.createdBy,
       this.id,
-      this.articleCategoryId});
+      this.articleCategoryId,
+      this.category});
 
   Article.fromJson(Map<String, dynamic> json) {
     title = json['title'];
@@ -77,6 +79,9 @@ class Article {
     createdBy = json['created_by'];
     id = json['id'];
     articleCategoryId = json['article_category_id'];
+    category = json['category'] != null
+        ? new Category.fromJson(json['category'])
+        : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -88,6 +93,28 @@ class Article {
     data['created_by'] = this.createdBy;
     data['id'] = this.id;
     data['article_category_id'] = this.articleCategoryId;
+    if (this.category != null) {
+      data['category'] = this.category!.toJson();
+    }
+    return data;
+  }
+}
+
+class Category {
+  int? id;
+  String? title;
+
+  Category({this.id, this.title});
+
+  Category.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    title = json['title'];
+  }
+
+  Map<String, dynamic> toJson() {
+    final Map<String, dynamic> data = new Map<String, dynamic>();
+    data['id'] = this.id;
+    data['title'] = this.title;
     return data;
   }
 }
@@ -136,22 +163,5 @@ class Articles {
     return data;
   }
 }
+//  ----------
 
-class Category {
-  int? id;
-  String? title;
-
-  Category({this.id, this.title});
-
-  Category.fromJson(Map<String, dynamic> json) {
-    id = json['id'];
-    title = json['title'];
-  }
-
-  Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['title'] = this.title;
-    return data;
-  }
-}

@@ -1,4 +1,3 @@
-import 'package:take_hand/domain_layer/models/college_model.dart';
 import 'package:take_hand/presentation_layer/screen/article_screen/widget/article_card.dart';
 import 'package:take_hand/presentation_layer/screen/free_course_platforms/widget/section_header_and_filter.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/home_controller.dart';
@@ -48,6 +47,9 @@ class HomeScreen extends StatelessWidget {
                             itemCount: 5,
                             itemBuilder: (BuildContext context, int index) {
                               return UniversityCard(
+                                  id: _.homeModel?.data?.universities![index]
+                                          .id ??
+                                      1,
                                   location: _.homeModel?.data
                                       ?.universities![index].address,
                                   imageUrl: _.homeModel?.data
@@ -196,26 +198,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-List<CollegeModel> colleges = [
-  CollegeModel(
-    imageUrl:
-        'https://cdn3d.iconscout.com/3d/premium/thumb/medicine-7239919-5889254.png',
-    name: 'كلية تجاره',
-  ),
-  CollegeModel(
-    imageUrl:
-        'https://cdn3d.iconscout.com/3d/premium/thumb/medicine-7239919-5889254.png',
-    name: 'كلية تجاره',
-  ),
-  CollegeModel(
-    imageUrl:
-        'https://cdn3d.iconscout.com/3d/premium/thumb/medicine-7239919-5889254.png',
-    name: 'كلية تجاره',
-  ),
-  CollegeModel(
-    imageUrl:
-        'https://cdn3d.iconscout.com/3d/premium/thumb/medicine-7239919-5889254.png',
-    name: 'كلية تجاره',
-  ),
-];

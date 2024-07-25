@@ -10,8 +10,9 @@ class ArticleDetalisController extends GetxController with ArticleSource {
   final int? id = Get.arguments["id"];
   getArticleDetalisResponse() async {
     try {
+      HelperFunction.printRedText("==================> ${id}");
       statusRequest = StatusRequest.loading;
-      response = await getArticlesDetalis(1);
+      response = await getArticlesDetalis(id!);
       statusRequest = handlingData(response);
       if (statusRequest == StatusRequest.success) {
         HelperFunction.printRedText("==================> ${response}");

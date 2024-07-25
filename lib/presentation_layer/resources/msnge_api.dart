@@ -14,6 +14,8 @@ class APiMange {
   static const String articles = "$baseurl/articles";
   static const String articlesDetalis = "$baseurl/article"; // /1
   static const String podcast = "$baseurl/podcast";
+  static const String universitiesDetalis = "$baseurl/universities"; // /1
+  static const String colleges = "$baseurl/universities/"; // 22/colleges
 
   ///1
 }

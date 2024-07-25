@@ -22,10 +22,10 @@ class CollegeScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: CollegeCard(
-                  imageUrl: colleges[0].imageUrl,
-                  collegeName: colleges[0].name,
-                ),
+                // child: CollegeCard(
+                //   imageUrl: colleges[0].imageUrl,
+                //   collegeName: colleges[0].name,
+                // ),
               );
             },
           );

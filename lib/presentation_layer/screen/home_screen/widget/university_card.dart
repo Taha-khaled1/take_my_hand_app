@@ -16,14 +16,17 @@ class UniversityCard extends StatelessWidget {
     this.number_of_college,
     this.location,
     this.images,
+    required this.id,
   });
   final String? imageUrl, titel, reate, number_of_college, location;
   final List<String>? images;
+  final int id;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Get.toNamed(Routes.universityDetalisScreen);
+        HelperFunction.printCyanText("==================> ${id}");
+        Get.toNamed(Routes.universityDetalisScreen, arguments: {"id": id});
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

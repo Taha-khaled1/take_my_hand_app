@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:take_hand/main.dart';
 import 'package:take_hand/presentation_layer/resources/msnge_api.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -92,6 +93,14 @@ class HelperFunction {
       textColor: Colors.white,
       fontSize: 16.0,
     );
+  }
+
+  static String translate(String? ar, String? en) {
+    if (sharedPreferences.getString("lang") == "ar") {
+      return ar ?? "";
+    } else {
+      return en ?? "";
+    }
   }
 
   static void printRedText(String text) {

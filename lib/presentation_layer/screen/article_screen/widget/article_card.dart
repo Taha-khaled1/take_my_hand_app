@@ -27,7 +27,7 @@ class ArticleCard extends StatelessWidget {
       builder: (context, deviceInfo) {
         return GestureDetector(
           onTap: () {
-            print(date);
+            HelperFunction.printCyanText("==================> ${id}");
             Get.toNamed(Routes.articleDetalis, arguments: {"id": id});
           },
           child: Padding(

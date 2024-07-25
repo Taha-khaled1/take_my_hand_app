@@ -8,6 +8,7 @@ import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_ta
 import 'package:take_hand/presentation_layer/src/get_packge.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 import 'package:flutter_html/flutter_html.dart' as html;
+import 'package:take_hand/presentation_layer/utils/view_handlers/view_handlers.dart';
 
 class ArticleDetalisScreen extends GetView<ArticleController> {
   const ArticleDetalisScreen({Key? key}) : super(key: key);
@@ -19,9 +20,11 @@ class ArticleDetalisScreen extends GetView<ArticleController> {
       body: InfoWidget(
         builder: (context, deviceInfo) {
           return GetBuilder<ArticleDetalisController>(
-              init: ArticleDetalisController(),
-              builder: (_) {
-                return SingleChildScrollView(
+            init: ArticleDetalisController(),
+            builder: (_) {
+              return HandlingDataView(
+                statusRequest: _.statusRequest,
+                child: SingleChildScrollView(
                   child: Column(
                     children: [
                       Padding(
@@ -68,8 +71,11 @@ class ArticleDetalisScreen extends GetView<ArticleController> {
                                   .copyWith(),
                             ),
                             CustomTag(
-                                title: "Design",
-                                color: ColorManager.backgroundpersonalimage),
+                              title: _.articlesModel?.data?.article?.category
+                                      ?.title ??
+                                  '',
+                              color: ColorManager.backgroundpersonalimage,
+                            ),
                           ],
                         ),
                       ),
@@ -77,26 +83,20 @@ class ArticleDetalisScreen extends GetView<ArticleController> {
                         alignment: Alignment.center,
                         padding:
                             EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                        // width: deviceInfo.localWidth * 0.9,
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(8),
-                          child: Image.asset(
-                            "assets/images/pexels-iriser-1366957.jpg",
+                          child: Image.network(
+                            _.articlesModel?.data?.article?.image ?? '',
                             width: double.infinity,
-                            height:
-                                250, // Adjust the height as per your layout needs
+                            height: 250,
                             fit: BoxFit.cover,
                           ),
                         ),
                       ),
                       AppSizedBox.sizedBox_10,
                       html.Html(
-                        data: """
-           ${_.articlesModel?.data?.article?.description ?? ""}
-              
-                    
-                    
-                    """,
+                        data:
+                            " ${_.articlesModel?.data?.article?.description ?? ""} ",
                       ),
                       SectionHeaderAndFilter(
                         is_more: false,
@@ -133,8 +133,10 @@ class ArticleDetalisScreen extends GetView<ArticleController> {
                       AppSizedBox.sizedBox_10,
                     ],
                   ),
-                );
-              });
+                ),
+              );
+            },
+          );
         },
       ),
     );

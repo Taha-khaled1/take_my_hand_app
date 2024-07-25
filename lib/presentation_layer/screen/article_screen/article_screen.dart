@@ -69,9 +69,8 @@ class ArticleScreen extends GetView<ArticleController> {
                         ),
                         AppSizedBox.sizedBox_10,
                         SectionHeaderAndFilter(
-                          is_more: true,
+                          is_more: false,
                           title: 'الاقسام',
-                          press: () {},
                         ),
                         AppSizedBox.sizedBox_10,
                         Wrap(

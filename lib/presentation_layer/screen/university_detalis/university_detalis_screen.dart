@@ -7,6 +7,10 @@ import 'package:take_hand/presentation_layer/screen/university_detalis/universit
 import 'package:take_hand/presentation_layer/screen/university_detalis/widget/rank_card.dart';
 import 'package:take_hand/presentation_layer/src/get_packge.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
+import 'package:take_hand/presentation_layer/utils/helper_function.dart';
+import 'package:take_hand/presentation_layer/utils/view_handlers/view_handlers.dart';
+
+import '../home_screen/widget/carousel_slider_banner.dart';
 
 class UniversityDetalisScreen extends GetView<UniversityDetalisController> {
   const UniversityDetalisScreen({super.key});
@@ -18,133 +22,173 @@ class UniversityDetalisScreen extends GetView<UniversityDetalisController> {
       backgroundColor: ColorManager.background,
       body: InfoWidget(
         builder: (context, deviceInfo) {
-          return SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Container(
-                  height: 290,
-                  width: deviceInfo.localWidth,
-                  color: ColorManager.background,
-                  child: Stack(
-                    children: [
-                      CachedNetworkImage(
-                        imageUrl:
-                            "https://img.freepik.com/free-photo/autumn-leaf-falling-revealing-intricate-leaf-vein-generated-by-ai_188544-9869.jpg?w=1380&t=st=1719253513~exp=1719254113~hmac=7a72da12a07c52f7621c128609c365d0acdadfaaee2e81bdc492793f74a2f02a",
-                        height: 250,
-                        width: double.infinity,
-                        fit: BoxFit.cover,
-                      ),
-                      PositionedDirectional(
-                        start: 5,
-                        bottom: 3,
-                        child: CustomCircleImage(
-                          radius: 45,
-                          image:
-                              "https://wallpapers.com/images/featured/hd-a5u9zq0a0ymy2dug.jpg",
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                AppSizedBox.sizedBox_10,
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 15),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "التقديم مغلق",
-                        style: MangeStyles().getRegularStyle(
-                          color: const Color.fromARGB(255, 212, 63, 78),
-                          fontSize: FontSize.s16,
-                        ),
-                      ),
-                      AppSizedBox.sizedBox_10,
-                      Text(
-                        "جامعة النيل الدوليه",
-                        style: MangeStyles().getSemiBoldStyle(
-                          color: ColorManager.white,
-                          fontSize: FontSize.s22,
-                        ),
-                      ),
-                      AppSizedBox.sizedBox_10,
-                      Text(
-                        "تاسست في عام 1856",
-                        style: MangeStyles().getRegularStyle(
-                          color: ColorManager.kTextgray,
-                          fontSize: FontSize.s14,
-                        ),
-                      ),
-                      AppSizedBox.sizedBox_10,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          RankCard(
-                            image: "assets/icons/thunder.png",
-                            rank: '365',
-                            country: "مصر",
-                            deviceInfo: deviceInfo,
+          return GetBuilder<UniversityDetalisController>(
+              init: UniversityDetalisController(),
+              builder: (_) {
+                return HandlingDataView(
+                  statusRequest: _.statusRequest,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          height: 220,
+                          width: deviceInfo.localWidth,
+                          color: ColorManager.background,
+                          child: Stack(
+                            children: [
+                              CarouselSliderBanner(
+                                aspectRatio: 16 / 9,
+                                viewportFraction: 1,
+                                height: MediaQuery.of(context).size.height,
+                                items: HelperFunction.StringTolist(_
+                                            .universityDetalisModel
+                                            ?.data
+                                            ?.images! ??
+                                        "")
+                                    .map((url) {
+                                  return Container(
+                                    height: MediaQuery.of(context).size.height,
+                                    width: MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(
+                                      color:
+                                          ColorManager.backgroundpersonalimage,
+                                      borderRadius: BorderRadius.only(
+                                        topLeft: Radius.circular(10),
+                                        topRight: Radius.circular(10),
+                                      ),
+                                      image: DecorationImage(
+                                        image: CachedNetworkImageProvider(url),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
+                                  );
+                                }).toList(),
+                              ),
+                              PositionedDirectional(
+                                start: 5,
+                                bottom: 3,
+                                child: CustomCircleImage(
+                                  radius: 45,
+                                  image:
+                                      "${_.universityDetalisModel?.data?.logo}",
+                                ),
+                              ),
+                            ],
                           ),
-                          RankCard(
-                            image: "assets/icons/world.png",
-                            rank: '100',
-                            country: "عالم",
-                            deviceInfo: deviceInfo,
-                          ),
-                        ],
-                      ),
-                      AppSizedBox.sizedBox_10,
-                      Text(
-                        "نبذه تعريفيه عن " + "الجامعه",
-                        style: MangeStyles().getBoldStyle(
-                          color: ColorManager.white,
-                          fontSize: FontSize.s15,
                         ),
-                      ),
-                      AppSizedBox.sizedBox_10,
-                      ReadMoreText(
-                        text: controller.text,
-                      ),
-                      AppSizedBox.sizedBox_10,
-                      CommunityCard(
-                        deviceInfo: deviceInfo,
-                        iconAsset: "assets/icons/college.png",
-                        title: 'الكليات',
-                        des:
-                            "ستجد هنا جميع الكليات وتنسيقهم و المجموع و المواد وكل شئ",
-                        onPressed: () {
-                          Get.toNamed(Routes.universityCollegeScreen);
-                        },
-                        color: Colors.blueGrey.withOpacity(0.1),
-                      ),
-                      AppSizedBox.sizedBox_10,
-                      CommunityCard(
-                        deviceInfo: deviceInfo,
-                        iconAsset: "assets/icons/social-media.png",
-                        title: 'المجتمع',
-                        des:
-                            "ستجد هنا جميع الكليات وتنسيقهم و المجموع و المواد وكل شئ",
-                        onPressed: () {},
-                        color: Colors.indigoAccent.withOpacity(0.1),
-                      ),
-                      AppSizedBox.sizedBox_10,
-                      CommunityCard(
-                        deviceInfo: deviceInfo,
-                        iconAsset: "assets/icons/phone.png",
-                        title: 'التواصل',
-                        des:
-                            "ستجد هنا جميع الكليات وتنسيقهم و المجموع و المواد وكل شئ",
-                        onPressed: () {},
-                        color: Colors.blue.withOpacity(0.1),
-                      ),
-                    ],
+                        AppSizedBox.sizedBox_10,
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 15),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "التقديم مغلق",
+                                style: MangeStyles().getRegularStyle(
+                                  color: const Color.fromARGB(255, 212, 63, 78),
+                                  fontSize: FontSize.s16,
+                                ),
+                              ),
+                              AppSizedBox.sizedBox_10,
+                              Text(
+                                HelperFunction.translate(
+                                  _.universityDetalisModel?.data?.titleAr,
+                                  _.universityDetalisModel?.data?.titleEn,
+                                ),
+                                style: MangeStyles().getSemiBoldStyle(
+                                  color: ColorManager.white,
+                                  fontSize: FontSize.s22,
+                                ),
+                              ),
+                              AppSizedBox.sizedBox_10,
+                              Text(
+                                "تاسست في عام ${_.universityDetalisModel?.data?.established}",
+                                style: MangeStyles().getRegularStyle(
+                                  color: ColorManager.kTextgray,
+                                  fontSize: FontSize.s14,
+                                ),
+                              ),
+                              AppSizedBox.sizedBox_10,
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  RankCard(
+                                    image: "assets/icons/thunder.png",
+                                    rank:
+                                        '${_.universityDetalisModel?.data?.locally}',
+                                    country: "مصر",
+                                    deviceInfo: deviceInfo,
+                                  ),
+                                  RankCard(
+                                    image: "assets/icons/world.png",
+                                    rank:
+                                        '${_.universityDetalisModel?.data?.globally}',
+                                    country: "عالم",
+                                    deviceInfo: deviceInfo,
+                                  ),
+                                ],
+                              ),
+                              AppSizedBox.sizedBox_10,
+                              Text(
+                                "نبذه تعريفيه عن " + "الجامعه",
+                                style: MangeStyles().getBoldStyle(
+                                  color: ColorManager.white,
+                                  fontSize: FontSize.s15,
+                                ),
+                              ),
+                              AppSizedBox.sizedBox_10,
+                              ReadMoreText(
+                                text: HelperFunction.translate(
+                                  _.universityDetalisModel?.data?.descriptionAr,
+                                  _.universityDetalisModel?.data?.descriptionEn,
+                                ),
+                              ),
+                              AppSizedBox.sizedBox_10,
+                              CommunityCard(
+                                deviceInfo: deviceInfo,
+                                iconAsset: "assets/icons/college.png",
+                                title: 'الكليات',
+                                des:
+                                    "ستجد هنا جميع الكليات وتنسيقهم و المجموع و المواد وكل شئ",
+                                onPressed: () {
+                                  Get.toNamed(Routes.universityCollegeScreen,
+                                      arguments: {
+                                        "id": _.universityDetalisModel?.data?.id
+                                      });
+                                },
+                                color: Colors.blueGrey.withOpacity(0.1),
+                              ),
+                              AppSizedBox.sizedBox_10,
+                              CommunityCard(
+                                deviceInfo: deviceInfo,
+                                iconAsset: "assets/icons/social-media.png",
+                                title: 'المجتمع',
+                                des:
+                                    "ستجد هنا جميع الكليات وتنسيقهم و المجموع و المواد وكل شئ",
+                                onPressed: () {},
+                                color: Colors.indigoAccent.withOpacity(0.1),
+                              ),
+                              AppSizedBox.sizedBox_10,
+                              CommunityCard(
+                                deviceInfo: deviceInfo,
+                                iconAsset: "assets/icons/phone.png",
+                                title: 'التواصل',
+                                des:
+                                    "ستجد هنا جميع الكليات وتنسيقهم و المجموع و المواد وكل شئ",
+                                onPressed: () {},
+                                color: Colors.blue.withOpacity(0.1),
+                              ),
+                            ],
+                          ),
+                        ),
+                        AppSizedBox.sizedBox_20,
+                      ],
+                    ),
                   ),
-                ),
-                AppSizedBox.sizedBox_20,
-              ],
-            ),
-          );
+                );
+              });
         },
       ),
     );
