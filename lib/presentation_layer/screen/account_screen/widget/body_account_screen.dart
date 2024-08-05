@@ -1,4 +1,3 @@
-import 'package:line_icons/line_icons.dart';
 import 'package:take_hand/presentation_layer/screen/account_screen/widget/custom_title.dart';
 import 'package:take_hand/presentation_layer/screen/favorite_screen/favorite_screen.dart';
 import 'package:take_hand/presentation_layer/screen/support_screen/support_screen.dart';
@@ -19,7 +18,7 @@ class BodyAccountScreen extends StatelessWidget {
             children: [
               CustomTitle(text: AppStrings.account.tr),
               CustomListtile(
-                widget: Icon(LineIcons.heart, color: ColorManager.white),
+                widget: Icon(Icons.favorite_border, color: ColorManager.white),
                 titel: "المفضله",
                 onTap: () {
                   Get.to(() => const FavoriteScreen());

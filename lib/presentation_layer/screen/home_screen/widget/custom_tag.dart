@@ -10,10 +10,12 @@ class CustomTag extends StatelessWidget {
     this.horizontalPadding,
     this.borderRadius,
     this.colorText,
+    this.widget,
   });
   final String title;
   final double? width, height, horizontalPadding, borderRadius;
   final Color? color, colorText;
+  final Widget? widget;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,13 +30,28 @@ class CustomTag extends StatelessWidget {
         color: color,
         borderRadius: BorderRadius.circular(borderRadius ?? 6),
       ),
-      child: Text(
-        title,
-        style: MangeStyles().getSemiBoldStyle(
-          color: colorText ?? Color(0xffFFFFFF),
-          fontSize: 12,
-        ),
-      ),
+      child: widget == null
+          ? Text(
+              title,
+              style: MangeStyles().getSemiBoldStyle(
+                color: colorText ?? Color(0xffFFFFFF),
+                fontSize: 12,
+              ),
+            )
+          : Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                widget!,
+                Text(
+                  title,
+                  style: MangeStyles().getSemiBoldStyle(
+                    color: colorText ?? Color(0xffFFFFFF),
+                    fontSize: 12,
+                  ),
+                ),
+              ],
+            ),
     );
   }
 }

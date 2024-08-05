@@ -1,6 +1,4 @@
 import 'package:take_hand/presentation_layer/components/appbar.dart';
-import 'package:take_hand/presentation_layer/screen/home_screen/home_screen.dart';
-import 'package:take_hand/presentation_layer/screen/home_screen/widget/college_card.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 
 class CollegeScreen extends StatelessWidget {

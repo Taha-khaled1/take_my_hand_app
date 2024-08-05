@@ -1,5 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:line_icons/line_icons.dart';
+
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/bottom_section_course.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_tag.dart';
 import 'package:take_hand/presentation_layer/src/account_url.dart';
@@ -73,7 +73,7 @@ class CourseCardRectangular extends StatelessWidget {
                   child: const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Icon(
-                      LineIcons.heart,
+                      Icons.favorite_border,
                       size: 30,
                       color: ColorManager.kPrimary,
                     ),

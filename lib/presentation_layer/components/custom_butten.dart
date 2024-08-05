@@ -40,6 +40,7 @@ class CustomButton extends StatelessWidget {
           borderRadius: rectangel ?? 12,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
+              padding: EdgeInsets.all(0),
               backgroundColor: (backgroundColor),
               shape: RoundedRectangleBorder(
                 side: sideIs ?? BorderSide.none,

@@ -1,4 +1,3 @@
-import 'package:line_icons/line_icons.dart';
 import 'package:take_hand/presentation_layer/screen/courses_screen/widget/row_course.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/bottom_section_course.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_tag.dart';
@@ -80,7 +79,7 @@ class CourseCardSqure extends StatelessWidget {
                         child: const Padding(
                           padding: EdgeInsets.all(4.0),
                           child: Icon(
-                            LineIcons.heart,
+                            Icons.favorite_border,
                             size: 22,
                             color: ColorManager.kPrimary,
                           ),
@@ -88,12 +87,12 @@ class CourseCardSqure extends StatelessWidget {
                       ),
                     ),
                   ),
-                  Positioned(
-                    right: 2,
+                  PositionedDirectional(
+                    start: 5,
                     top: 2,
                     child: CustomTag(
                       title: "مجاني",
-                      color: ColorManager.green,
+                      color: ColorManager.kPrimary3,
                     ),
                   ),
                 ],

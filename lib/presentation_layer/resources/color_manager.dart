@@ -5,7 +5,8 @@ class ColorManager {
   static const Color kPrimary = Color(0xFF7206FC);
   static const Color kgold = Color(0xFFefbf04);
 
-  static const Color kPrimary2 = Color(0xff747281);
+  static const Color kPrimary2 = Color(0xff7989ea);
+  static const Color kPrimary3 = Color(0xff0194fe);
   static const Color background = Color(0xff141418);
   static const Color kTextlightgray = Color(0xff747281);
   static const Color kTextfild = Color(0xffe1e1ee);

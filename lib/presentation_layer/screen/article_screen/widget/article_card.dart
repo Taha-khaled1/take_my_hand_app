@@ -34,7 +34,6 @@ class ArticleCard extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 2.5, top: 2.5),
             child: ClayContainer(
               color: ColorManager.background,
-              // height: 200,
               width: 245,
               borderRadius: 15,
               spread: 1.5,

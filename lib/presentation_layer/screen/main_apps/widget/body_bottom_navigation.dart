@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:line_icons/line_icons.dart';
+
 import 'package:take_hand/presentation_layer/screen/main_apps/tab_app_controller.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
 
@@ -40,23 +40,23 @@ class BodybottomNavigationBar extends StatelessWidget {
             color: Colors.blueAccent,
             tabs: [
               GButton(
-                icon: LineIcons.home,
+                icon: Icons.home,
                 text: AppStrings.home.tr,
               ),
               const GButton(
-                icon: LineIcons.search,
+                icon: Icons.search,
                 text: "الكليه",
               ),
               const GButton(
-                icon: LineIcons.heart,
+                icon: Icons.favorite_border,
                 text: "دورات",
               ),
               GButton(
-                icon: LineIcons.bookOpen,
+                icon: Icons.book,
                 text: 'مقالات',
               ),
               GButton(
-                icon: LineIcons.user,
+                icon: Icons.accessibility,
                 text: AppStrings.account.tr,
               ),
             ],

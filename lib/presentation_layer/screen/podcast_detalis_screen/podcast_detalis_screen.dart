@@ -1,7 +1,6 @@
 import 'package:take_hand/presentation_layer/components/appbar.dart';
 import 'package:take_hand/presentation_layer/screen/free_course_platforms/widget/section_header_and_filter.dart';
 import 'package:take_hand/presentation_layer/screen/podcast_detalis_screen/podcast_detalis_controller.dart';
-import 'package:take_hand/presentation_layer/screen/podcast_screen/widget/podcast_card.dart';
 import 'package:take_hand/presentation_layer/screen/university_detalis/university_detalis_screen.dart';
 import 'package:take_hand/presentation_layer/src/get_packge.dart';
 import 'package:take_hand/presentation_layer/src/style_packge.dart';
