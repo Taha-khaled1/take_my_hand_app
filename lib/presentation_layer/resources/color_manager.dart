@@ -9,6 +9,7 @@ class ColorManager {
   static const Color kPrimary3 = Color(0xff0194fe);
   static const Color background = Color(0xff141418);
   static const Color kTextlightgray = Color(0xff747281);
+  static const Color blackAccent = Color(0xff242446);
   static const Color kTextfild = Color(0xffe1e1ee);
   static const Color kTextgreen = Color(0xff33CC33);
   static Color kTextgray400 = Colors.grey[400]!;

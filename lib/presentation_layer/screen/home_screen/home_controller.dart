@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:get/get.dart';
 import 'package:take_hand/application_layer/utils/handling.dart';
 import 'package:take_hand/application_layer/utils/statusrequst.dart';
@@ -8,6 +9,8 @@ import 'package:take_hand/presentation_layer/utils/helper_function.dart';
 
 class HomeController extends GetxController with HomeSource {
   late StatusRequest statusRequest;
+  final CarouselController carouselController = CarouselController();
+  int current = 0;
   HomeModel? homeModel;
   var response;
   List<BannerCard> banners = [];

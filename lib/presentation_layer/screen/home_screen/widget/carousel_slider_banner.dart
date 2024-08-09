@@ -12,11 +12,13 @@ class CarouselSliderBanner extends StatelessWidget {
     this.callbackFunction,
     this.enlargeFactor,
     this.autoPlay,
+    this.carouselController,
   });
   final List<Widget> items;
   final double? height, aspectRatio, viewportFraction, enlargeFactor;
   final void Function(int, CarouselPageChangedReason)? callbackFunction;
   final bool? autoPlay;
+  final CarouselController? carouselController;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -28,6 +30,7 @@ class CarouselSliderBanner extends StatelessWidget {
         borderRadius: BorderRadius.circular(20),
       ),
       child: CarouselSlider(
+        carouselController: carouselController,
         items: items,
         options: CarouselOptions(
           height: height ?? 160,

@@ -1,7 +1,7 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:take_hand/presentation_layer/screen/home_screen/widget/custom_tag.dart';
 import 'package:take_hand/presentation_layer/src/account_url.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
+// import 'package:animated_text_kit/animated_text_kit.dart';
 
 class BookCard extends StatelessWidget {
   const BookCard({
